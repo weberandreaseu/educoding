@@ -1,4 +1,4 @@
-<h2>Create an new account</h2>
+<h2><%= t('headlines.new_user') %></h2>
 <%= form_for @user do |f| %>
 
   <% if @user.errors.any? %>
@@ -10,27 +10,26 @@
   <% end %>
 
   <fieldset class="form-group">
-    <%= f.label :firstname %>
+    <%= f.label :firstname, t('words.firstname') %>
     <%= f.text_field :firstname, class: "form-control" %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :lastname %>
+    <%= f.label :lastname, t('words.lastname') %>
     <%= f.text_field :lastname, class: "form-control" %>
   </fieldset>
   <fieldset class="form-group">
-      <%= f.label :email %>
+      <%= f.label :email, t('words.email') %>
     <%= f.text_field :email, class: "form-control" %>
   </fieldset>
   <fieldset class="form-group">
-    <%= f.label :password %>
+    <%= f.label :password, t('words.password') %>
     <%= f.password_field :password, class: "form-control" %>
   </fieldset>
   <fieldset class="form-group">
-      <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation, t('words.password_confirmation') %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </fieldset>
-  <%= f.submit "Submit", :disable_with => 'Submiting...', class: "btn btn-primary" %>
-  <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
+  <%= f.submit class: "btn btn-primary" %>
+  <%= link_to t('links.cancel'), root_path, class: "btn btn-secondary" %>
 <% end %>
-  

@@ -7,3 +7,21 @@
 .alert {
     list-style-type: none;
 }
+
+footer {
+	background-color: $gray-dark;
+	color: $gray-lighter;
+	a {
+		color: $gray-lighter;
+	}
+
+	a:hover {
+		color: darken($gray-lighter, 15%);
+		text-decoration: none;
+	}
+}
+
+.language-picker {
+	list-style-type: none;
+	padding: 0;
+}

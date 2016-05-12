@@ -8,17 +8,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 </head>
 <body>
-<%= render 'partials/navbar' %>
+  <%= render 'partials/navbar' %>
 
-<% if flash[:notice] %>
+  <% if flash[:notice] %>
   <div class="alert alert-success" role="alert">
     <%= flash[:notice] %>
   </div>
-<% end %>
+  <% end %>
 
-<div class="container">
-  <%= yield %>
-</div>
+  <div class="container">
+    <%= yield %>
+  </div>
 
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <h5>Sprachen</h5>
+          <ul class="language-picker">
+            <li><%= link_to "Deutsch", locale_path('de') %></li>
+            <li><%= link_to "English", locale_path('en') %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
