@@ -1,0 +1,36 @@
+<h2>Create an new account</h2>
+<%= form_for @user do |f| %>
+
+  <% if @user.errors.any? %>
+    <ul class="alert alert-danger" role="alert">
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <fieldset class="form-group">
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname, class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+      <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </fieldset>
+  <fieldset class="form-group">
+      <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </fieldset>
+  <%= f.submit "Submit", :disable_with => 'Submiting...', class: "btn btn-primary" %>
+  <%= link_to "Cancel", root_path, class: "btn btn-secondary" %>
+<% end %>
+  
