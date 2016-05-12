@@ -1,15 +1,19 @@
 When(/^I click sign up$/) do
-  click_link new_user_path
+  click_button "Sign up"
 end
 
 When(/^I fill the registration form$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  fill_in "Firstname", with: "John"
+  fill_in "Lastname", with: "Doe"
+  fill_in "Email", with: "john@doe.com"
+  fill_in "Password", with: "1234"
+  fill_in "Password confirmation", with: "1234"
 end
 
 When(/^submit the form$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  click_button "Submit"
 end
 
  Then(/^I should get a confirmation$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+   page.should have_content('successfully registred')
 end
