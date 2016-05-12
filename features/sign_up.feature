@@ -1,7 +1,7 @@
 Feature: Sign up
-As a unregistred visitor
-I want to sign up for educoding
-So I can use the full functionality of the service
+As a unregistred user
+I want to sign up
+So I can log me in
 
 Scenario: Sign up
 When I visit the home page

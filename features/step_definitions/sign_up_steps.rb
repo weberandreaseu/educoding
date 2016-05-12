@@ -15,5 +15,5 @@ When(/^submit the form$/) do
 end
 
  Then(/^I should get a confirmation$/) do
-   page.should have_content('successfully registred')
+   expect(page).to have_content('successfully registred')
 end
