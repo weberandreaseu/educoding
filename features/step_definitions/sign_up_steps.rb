@@ -1,5 +1,5 @@
 When(/^I click sign up$/) do
-  click_button "Sign up"
+  click_link "Sign up"
 end
 
 When(/^I fill the registration form$/) do
