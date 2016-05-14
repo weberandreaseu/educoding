@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
   # get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -15,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+  get 'login' => 'sessions#new', as: 'login'
+  post 'sessions' => 'sessions#create', as: 'sessions'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

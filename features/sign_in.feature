@@ -8,6 +8,7 @@ Given a registred user
 When I visit the home page
 And I click login
 And I fill my email and password
+And I submit my login data
 Then I should see an login confirmation
-And I should be logged in
+# And I should be logged in
 And I should see my firstname

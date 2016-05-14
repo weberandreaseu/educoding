@@ -11,14 +11,18 @@ When(/^I fill my email and password$/) do
   fill_in "Password", with: "1234"
 end
 
-Then(/^I should see an login confirmation$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+When(/^I submit my login data$/) do
+  click_button "Login"
 end
 
-Then(/^I should be logged in$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^I should see an login confirmation$/) do
+  expect(page).to have_content("You are logged in")
 end
+
+# Then(/^I should be logged in$/) do
+#   pending # Write code here that turns the phrase above into concrete actions
+# end
 
 Then(/^I should see my firstname$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content("John")
 end
