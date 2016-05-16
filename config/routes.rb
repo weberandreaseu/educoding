@@ -7,13 +7,18 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
 
-  get 'login' => 'sessions#new', as: 'login'
-  post 'sessions' => 'sessions#create', as: 'sessions'
-  delete 'logout' => 'sessions#destroy', as: 'logout'
+
+
   scope "(:locale)", locale: /en|de/ do
-    resources :users, only: [:new, :create]
+    get 'login' => 'sessions#new', as: 'login'
+    post 'sessions' => 'sessions#create', as: 'sessions'
+    delete 'logout' => 'sessions#destroy', as: 'logout'
+
+    get 'signup' => 'users#new', as: 'signup'
+    post 'users' => 'users#create', as: 'users'
     root 'welcome#index'
   end
+  get '/:locale' => 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

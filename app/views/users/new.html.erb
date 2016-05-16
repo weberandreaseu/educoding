@@ -30,6 +30,6 @@
     <%= f.label :password_confirmation, t('words.password_confirmation') %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </fieldset>
-  <%= f.submit class: "btn btn-primary" %>
+  <%= f.submit t('links.sign_up'), class: "btn btn-primary" %>
   <%= link_to t('links.cancel'), root_path, class: "btn btn-secondary" %>
 <% end %>

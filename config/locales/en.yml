@@ -16,4 +16,4 @@ en:
     lastname: "Lastname"
     email: "Email"
     password: "Password"
-    password_confirmation: "Passwort confirmation"
+    password_confirmation: "Password confirmation"

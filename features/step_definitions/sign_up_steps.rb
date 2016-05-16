@@ -8,7 +8,7 @@ When(/^fills the registration form$/) do
 end
 
 When(/^submits the form$/) do
-  click_button "Submit"
+  click_button "Sign Up"
 end
 
 Then(/^he should see a welcome message$/) do
