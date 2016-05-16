@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
 
+  get 'login' => 'sessions#new', as: 'login'
+  post 'sessions' => 'sessions#create', as: 'sessions'
+  delete 'logout' => 'sessions#destroy', as: 'logout'
   scope "(:locale)", locale: /en|de/ do
     resources :users, only: [:new, :create]
     root 'welcome#index'
