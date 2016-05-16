@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tasks
   # get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
 
 
 
+  resource :tasks
 
   scope "(:locale)", locale: /en|de/ do
     get 'login' => 'sessions#new', as: 'login'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
     get 'signup' => 'users#new', as: 'signup'
     post 'users' => 'users#create', as: 'users'
     root 'welcome#index'
+
   end
   get '/:locale' => 'welcome#index'
 
