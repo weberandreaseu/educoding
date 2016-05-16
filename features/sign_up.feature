@@ -1,12 +1,10 @@
-Feature: Sign up
-As a unregistred user
-I want to sign up
-So I can log me in
+Feature: Sign Up
+An unregistred user
+Wants to sign up
+So he can log in
 
 Scenario: Sign up
-When I visit the home page
-# And I am not logged in
-And I click sign up
-And I fill the registration form
-And submit the form
-Then I should get a confirmation
+When a user visits sign up
+And fills the registration form
+And submits the form
+Then he should see a confirmation "successfully registred"
