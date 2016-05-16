@@ -9,6 +9,6 @@
   <%= label_tag :password %>
   <%= password_field_tag :password, nil,  class: "form-control"%>
 </fieldset>
-<%= submit_tag "Login", class: "btn btn-primary" %>
-<%= link_to "Sign up", signup_path, class: "btn btn-secondary" %>
+<%= submit_tag t('links.login'), class: "btn btn-primary" %>
+<%= link_to t('links.sign_up'), signup_path, class: "btn btn-secondary" %>
 <% end -%>  

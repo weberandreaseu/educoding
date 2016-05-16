@@ -11,7 +11,7 @@
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.firstname %></a>
           <% end %>
           <div class="dropdown-menu">
-            <%= link_to "Logout", logout_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to t('links.logout'), logout_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       </ul>
