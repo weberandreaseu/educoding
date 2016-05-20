@@ -7,13 +7,15 @@
 
   <fieldset class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control"  %>
+    <%= f.hidden_field :description %>
   </fieldset>
+
+  <div id="editor"># Hello markdown</div>
 
   <fieldset class="form-group">
     <%= f.label :score %>
     <%= f.text_field :score, type: "number", class: "form-control"  %>
   </fieldset>
 
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= f.submit "Submit", id: "new-task", class: "btn btn-primary" %>
 <% end %>

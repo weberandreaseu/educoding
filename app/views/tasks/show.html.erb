@@ -2,16 +2,9 @@
 
 <%= markdown(@task.description) %>
 
-<div id="editor">
-class HelloWorld {
+<div id="editor">class HelloWorld {
   main(){
     System.out.println("Hello World");
   }
 }
 </div>
-
-<script>
-  var editor = ace.edit("editor");
-  editor.setTheme("ace/theme/chrome");
-  editor.getSession().setMode("ace/mode/markdown");
-</script>
