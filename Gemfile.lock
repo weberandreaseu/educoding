@@ -206,6 +206,7 @@ DEPENDENCIES
   bcrypt
   bootstrap (~> 4.0.0.alpha3)
   byebug
+  coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
   factory_girl_rails (~> 3.4)
