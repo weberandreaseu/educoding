@@ -1,9 +1,26 @@
 <h2>All tasks</h2>
 
-<ol>
-  <% @tasks.each do |task| %>
-    <li><%= link_to task.title, task_path(task) %></li>
-  <% end %>
-</ol>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Score</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each_with_index do |task, index| %>
+      <tr>
+        <th scope="row"><%= index+1 %></th>
+        <td><%= link_to task.title, task_path(task) %></td>
+        <td><%= task.score %></td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
