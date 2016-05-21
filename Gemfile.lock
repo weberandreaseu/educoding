@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    ace-rails-ap (4.0.2)
     actionmailer (4.2.5.2)
       actionpack (= 4.2.5.2)
       actionview (= 4.2.5.2)
@@ -204,7 +203,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ace-rails-ap
   bcrypt
   bootstrap (~> 4.0.0.alpha3)
   byebug
