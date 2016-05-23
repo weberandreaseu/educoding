@@ -3,7 +3,7 @@
 
 initEditor = ->
 	# only use editor in tasks/new
-	return unless $(".tasks.new").length > 0
+	return unless $(".tasks.new").length > 0 || $(".tasks.edit").length > 0
 
 	# initialize editor
 	editor = ace.edit('editor')

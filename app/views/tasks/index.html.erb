@@ -16,8 +16,8 @@
         <th scope="row"><%= index+1 %></th>
         <td><%= link_to task.title, task_path(task) %></td>
         <td><%= task.score %></td>
-        <td>Edit</td>
-        <td>Delete</td>
+        <td><%= link_to "edit", edit_task_path(task) %></td>
+        <td><%= link_to "delete", task_path(task), method: "delete", data: {confirm: "Do you really want to delete #{task.title}"}%></td>
       </tr>
     <% end %>
   </tbody>

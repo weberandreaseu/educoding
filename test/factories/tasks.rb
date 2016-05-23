@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :task do
-    title "Hello World"
+    title "Java Hello World"
     description "Please implement Hello Word in Java"
     score 4
   end

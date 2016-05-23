@@ -8,7 +8,10 @@ When(/^fills the registration form$/) do
 end
 
 When(/^submits the form$/) do
-  click_button "Sign Up"
+end
+
+When(/^clicks button "([^"]*)"$/) do |button|
+  click_button button
 end
 
 Then(/^he should see a welcome message$/) do

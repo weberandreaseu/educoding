@@ -6,5 +6,5 @@ So he can log in
 Scenario: Sign up
 When a user visits sign up
 And fills the registration form
-And submits the form
+And he clicks the "Sign Up" button
 Then he should see a confirmation "successfully registred"

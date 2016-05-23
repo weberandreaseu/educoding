@@ -1,0 +1,20 @@
+<%= form_for @task do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :description %>
+    <%= f.hidden_field :description %>
+  </fieldset>
+
+  <div id="editor"><%= @task.description %></div>
+
+  <fieldset class="form-group">
+    <%= f.label :score %>
+    <%= f.text_field :score, type: "number", class: "form-control"  %>
+  </fieldset>
+
+  <%= f.submit id: "new-task", class: "btn btn-primary" %>
+<% end %>
