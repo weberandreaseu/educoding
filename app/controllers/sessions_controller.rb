@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # TODO: extrak to log_in user in session_helper
       session[:user_id] = user.id
-      redirect_to root_path, notice: "You are logged in"
+      redirect_to tasks_path, notice: "You are logged in"
       
     else
       flash.now.alert = "Invalid email or password"
