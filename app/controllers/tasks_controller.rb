@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find_by_id(params[:id])
+
     if @task.update_attributes(task_params)
       redirect_to tasks_path, notice: t('messages.edit_task')
     else
@@ -43,6 +44,6 @@ class TasksController < ApplicationController
   private
   
   def task_params
-    params.require(:task).permit(:title, :description, :score)
+    params.require(:task).permit(:title, :description, :score, :class_files_attributes)
   end
 end

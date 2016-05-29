@@ -15,8 +15,20 @@
 
   <fieldset class="form-group">
     <%= f.label :score %>
-    <%= f.text_field :score, type: "number", class: "form-control"  %>
+    <%= f.number_field :score, class: "form-control"  %>
   </fieldset>
 
+  <h2>Scaffold</h2>
+  <ul class="nav nav-tabs">
+    <%= f.fields_for :class_files do |file| %>
+      <li class="nav-item">
+        <%= file.label :filename %>
+        <%= file.text_field :filename %>
+ 
+        <%= file.label :code %>
+        <%= file.text_area :code %>
+      </li>
+    <% end %>
+  </ul>
   <%= f.submit id: "new-task", class: "btn btn-primary" %>
 <% end %>
