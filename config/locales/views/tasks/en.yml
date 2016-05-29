@@ -1,0 +1,7 @@
+en:
+  messages:
+    edit_task: "Task was updated"
+    create_task: "Task was created"
+    delete_task: "Task was deleted"
+  confirm:
+    delete_task: "Do you really want to delete %{task}?"

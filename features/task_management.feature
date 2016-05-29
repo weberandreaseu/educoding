@@ -5,7 +5,7 @@ Tasks are part of an excercise an are solved by students
 Scenario: New descriptive Task
 # Given an authorized person is logged in
 When a user visits the tasks overview
-And he clicks "New Task"
+And he clicks "Create Task"
 And fills the new task from
 And he clicks the "Create Task" button
 Then he should see a confirmation "Task was created"

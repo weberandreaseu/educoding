@@ -1,0 +1,7 @@
+en:
+  headlines:
+    new_user: "Create new Account"
+  links:
+    sign_up: "Sign Up"
+  messages:
+    valid_sign_up: "You are successfully registred"

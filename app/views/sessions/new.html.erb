@@ -1,14 +1,17 @@
-<h1>Login</h1>
+<h1><%= t('links.login') %></h1>
 
 <%= form_tag sessions_path do %>
-<fieldset class="form-group">
-  <%= label_tag :email %>
-  <%= text_field_tag :email, params[:email], class: "form-control" %>
-</fieldset>
-<fieldset class="form-group">
-  <%= label_tag :password %>
-  <%= password_field_tag :password, nil,  class: "form-control"%>
-</fieldset>
-<%= submit_tag t('links.login'), class: "btn btn-primary" %>
-<%= link_to t('links.sign_up'), signup_path, class: "btn btn-secondary" %>
-<% end -%>  
+
+  <fieldset class="form-group">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email], class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil,  class: "form-control"%>
+  </fieldset>
+
+  <%= submit_tag t('links.login'), class: "btn btn-primary" %>
+  <%= link_to t('links.sign_up'), signup_path, class: "btn btn-secondary" %>
+<% end -%>

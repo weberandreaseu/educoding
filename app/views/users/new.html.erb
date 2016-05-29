@@ -10,26 +10,30 @@
   <% end %>
 
   <fieldset class="form-group">
-    <%= f.label :firstname, t('words.firstname') %>
+    <%= f.label :firstname %>
     <%= f.text_field :firstname, class: "form-control" %>
   </fieldset>
 
   <fieldset class="form-group">
-    <%= f.label :lastname, t('words.lastname') %>
+    <%= f.label :lastname %>
     <%= f.text_field :lastname, class: "form-control" %>
   </fieldset>
+
   <fieldset class="form-group">
-      <%= f.label :email, t('words.email') %>
+    <%= f.label :email %>
     <%= f.text_field :email, class: "form-control" %>
   </fieldset>
+
   <fieldset class="form-group">
-    <%= f.label :password, t('words.password') %>
+    <%= f.label :password %>
     <%= f.password_field :password, class: "form-control" %>
   </fieldset>
+
   <fieldset class="form-group">
-    <%= f.label :password_confirmation, t('words.password_confirmation') %>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </fieldset>
+  
   <%= f.submit t('links.sign_up'), class: "btn btn-primary" %>
-  <%= link_to t('links.cancel'), root_path, class: "btn btn-secondary" %>
+  <%= link_to t('actions.cancel'), root_path, class: "btn btn-secondary" %>
 <% end %>

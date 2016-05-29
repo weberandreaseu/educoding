@@ -1,0 +1,9 @@
+de:
+  actions:
+    edit: "bearbeiten"
+    delete: "löschen"
+    create: "erstellen"
+    new: "neu"
+    cancel: "Abbrechen"
+  footer:
+    select_language: "Sprache auswählen"

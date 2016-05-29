@@ -1,0 +1,7 @@
+de:
+  messages:
+    edit_task: "Aufgabe wurde bearbeitet"
+    create_task: "Aufgabe wurde erstellt"
+    delete_task: Aufgabe wurde gelöscht
+  confirm:
+    delete_task: "Möchtest du %{task} wirklich löschen?"

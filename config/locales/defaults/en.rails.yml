@@ -1,5 +1,5 @@
 ---
-en-US:
+en:
   activerecord:
     errors:
       messages:
@@ -145,9 +145,13 @@ en-US:
     select:
       prompt: Please select
     submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
+    title:
+      new: "Create %{model}"
+      edit: "Edit %{model}"
+      index: "All %{model}"
   number:
     currency:
       format:

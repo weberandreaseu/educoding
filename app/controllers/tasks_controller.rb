@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find_by_id(params[:id])
     if @task.update_attributes(task_params)
-      redirect_to tasks_path, notice: "Task was updated"
+      redirect_to tasks_path, notice: t('messages.edit_task')
     else
       render "edit"
     end
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.create(task_params)
     if @task.save
-      redirect_to tasks_path, notice: "Task was created"
+      redirect_to tasks_path, notice: t('messages.create_task')
     else
       render 'new'
     end
@@ -37,10 +37,11 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find_by_id(params[:id])
     @task.destroy
-    redirect_to tasks_path
+    redirect_to tasks_path, notice: t('messages.delete_task')
   end
 
   private
+  
   def task_params
     params.require(:task).permit(:title, :description, :score)
   end

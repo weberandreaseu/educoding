@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to root_path, notice: "You are successfully registred"
+      redirect_to root_path, notice: t('messages.valid_sign_up')
     else
       render "new"
     end

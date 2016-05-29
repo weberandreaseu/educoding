@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    models:
+      task:
+        one: "Task"
+        other: "Tasks"
+  helpers:
+    label:
+      task:
+        title: "Title"
+        description: "Description"
+        score: "Score"
