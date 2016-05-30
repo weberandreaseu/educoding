@@ -1,6 +1,6 @@
 <h1><%= generate_title @task %></h1>
 
-<%= form_for @task do |f| %>
+<%= nested_form_for @task do |f| %>
   <fieldset class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>
@@ -19,16 +19,16 @@
   </fieldset>
 
   <h2>Scaffold</h2>
-  <ul class="nav nav-tabs">
-    <%= f.fields_for :class_files do |file| %>
-      <li class="nav-item">
-        <%= file.label :filename %>
-        <%= file.text_field :filename %>
- 
-        <%= file.label :code %>
-        <%= file.text_area :code %>
-      </li>
-    <% end %>
-  </ul>
+
+  <%= f.fields_for :class_files do |file| %>
+      <%= file.label :filename %>
+      <%= file.text_field :filename %>
+
+      <%= file.label :code %>
+      <%= file.text_area :code %>
+  
+      <%= file.link_to_remove "Remove" %>
+  <% end %>
+  <p><%= f.link_to_add "Add a file", :class_files %></p>
   <%= f.submit id: "new-task", class: "btn btn-primary" %>
 <% end %>

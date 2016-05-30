@@ -3,3 +3,4 @@
 #= require turbolinks
 #= require bootstrap-sprockets
 #= require editor
+#= require jquery_nested_form
