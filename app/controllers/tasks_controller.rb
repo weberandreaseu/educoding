@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     if @task.update_attributes(task_params)
       redirect_to tasks_path, notice: t('messages.edit_task')
     else
-      render "edit"
+      render 'edit'
     end
   end
 

@@ -1,0 +1,47 @@
+<%= form_for @task do |f| %>
+  <fieldset class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </fieldset>
+
+  <fieldset class="form-group">
+    <%= f.label :description %>
+    <%= f.hidden_field :description %>
+  </fieldset>
+
+  <div id="description-editor"><%= @task.description %></div>
+
+  <fieldset class="form-group">
+    <%= f.label :score %>
+    <%= f.number_field :score, class: "form-control"  %>
+  </fieldset>
+
+
+  <h2>Scaffold</h2>
+
+  <%= f.fields_for (:class_files) do |file| %>
+    <%= file.text_field :filename %>
+    <%= file.text_area :code %>
+  <% end %>
+
+  <ul id="editor-tabs" class="nav nav-tabs" role="tablist">
+    <% @task.class_files.each_with_index do |file, index| %>
+      <li class="nav-item">
+        <a class="nav-link <%= "active" unless index > 0 %>" href="#tab<%= index %>" role="tab" data-toggle="tab">
+          <%= file.filename %>
+        </a>
+        <%# link_to '(delete)', task_class_file_path(@task, file), method: 'delete', remote: true %>
+      </li>
+    <% end %>
+    <li class="nav-item"><%= link_to 'Add file', new_task_class_file_path(@task), remote: true, class:'nav-link'%></li>
+  </ul>
+  <div class="tab-content">
+    <% @task.class_files.each_with_index do |file, index| %>
+      <div role="tabpanel" class="tab-pane in <%= "active" unless index > 0 %>" id="tab<%= index %>">
+        <%= file.code %>
+      </div>
+    <% end %>
+  </div>
+
+  <%= f.submit id: "new-task", class: "btn btn-primary" %>
+<% end %>

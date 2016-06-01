@@ -1,34 +1,4 @@
-<h1><%= generate_title @task %></h1>
-
-<%= nested_form_for @task do |f| %>
-  <fieldset class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :description %>
-    <%= f.hidden_field :description %>
-  </fieldset>
-
-  <div id="editor"><%= @task.description %></div>
-
-  <fieldset class="form-group">
-    <%= f.label :score %>
-    <%= f.number_field :score, class: "form-control"  %>
-  </fieldset>
-
-  <h2>Scaffold</h2>
-
-  <%= f.fields_for :class_files do |file| %>
-      <%= file.label :filename %>
-      <%= file.text_field :filename %>
-
-      <%= file.label :code %>
-      <%= file.text_area :code %>
-  
-      <%= file.link_to_remove "Remove" %>
-  <% end %>
-  <p><%= f.link_to_add "Add a file", :class_files %></p>
-  <%= f.submit id: "new-task", class: "btn btn-primary" %>
-<% end %>
+<h1><%= generate_title (@task)%></h1>
+<div id="task-form">
+  <%= render 'class_files/class_files' %>
+</div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   # get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -19,7 +20,9 @@ Rails.application.routes.draw do
     post 'users' => 'users#create', as: 'users'
     root 'welcome#index'
 
-    resources :tasks
+    resources :tasks do
+      resources :class_files
+    end
   end
   get '/:locale' => 'welcome#index'
 
