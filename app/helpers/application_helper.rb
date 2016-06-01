@@ -2,14 +2,14 @@ module ApplicationHelper
 
   # the markdown parser
   def markdown(text)
-    # options an extensions at https://github.com/vmg/redcarpet
+    # options and extensions at https://github.com/vmg/redcarpet
     options = {}
-    extensions ={}    
+    extensions = {fenced_code_blocks: true}
 
     renderer = Redcarpet::Render::HTML.new(options)
-    markdown = Redcarpet::Markdown.new(renderer, extensions)
+    @markdown ||= Redcarpet::Markdown.new(renderer, extensions)
 
-    markdown.render(text).html_safe
+    @markdown.render(text).html_safe
   end
 
   # generates the title for a view depending on action name
