@@ -30,7 +30,7 @@
         <a class="nav-link <%= "active" unless index > 0 %>" href="#tab<%= index %>" role="tab" data-toggle="tab">
           <%= file.filename %>
         </a>
-        <%# link_to '(delete)', task_class_file_path(@task, file), method: 'delete', remote: true %>
+        <%= link_to '(delete)', [@task, file], method: 'delete', remote: true %>
       </li>
     <% end %>
     <li class="nav-item"><%= link_to 'Add file', new_task_class_file_path(@task), remote: true, class:'nav-link'%></li>

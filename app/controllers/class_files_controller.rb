@@ -10,10 +10,12 @@ class ClassFilesController < ApplicationController
   end
 
   def destroy
-    # @class_file = ClassFiles.find(params[:id])
-    # @class_file.destroy
-    #   respond_to do |format|
-    #   format.js
-    # end
+    @task = Task.find(params[:task_id])
+    @class_file = @task.class_files.find(params[:id])
+    @class_file.destroy
+    
+    respond_to do |format|
+      format.js
+    end
   end
 end
