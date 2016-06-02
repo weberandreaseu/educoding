@@ -1,4 +1,27 @@
 <h1><%= generate_title (@task)%></h1>
-<div id="task-form">
-  <%= render 'class_files/class_files' %>
-</div>
+
+<%= simple_form_for @task do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :score %>
+  
+  <h2>Scaffold</h2>
+
+  <div id="class_files">
+    <ul class="nested-fields nav nav-tabs">
+      <%= f.simple_fields_for :class_files do |class_file| %>
+        <%= render 'partials/class_file', f: class_file %>
+      <% end %>
+
+      <li class="links nav-item">
+        <%= link_to_add_association 'add file', f, :class_files, id: 'add_class_file', class: 'nav-link' %>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+    </div>
+
+  </div>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

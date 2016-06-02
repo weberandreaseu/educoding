@@ -20,9 +20,7 @@ Rails.application.routes.draw do
     post 'users' => 'users#create', as: 'users'
     root 'welcome#index'
 
-    resources :tasks do
-      resources :class_files
-    end
+    resources :tasks
   end
   get '/:locale' => 'welcome#index'
 
