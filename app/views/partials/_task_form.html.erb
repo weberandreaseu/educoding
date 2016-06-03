@@ -8,7 +8,7 @@
   <h2>Scaffold</h2>
 
   <div id="class_files">
-    <ul class="nested-fields nav nav-tabs">
+    <ul id="class_file_tabs" class="nav nav-tabs">
       <%= f.simple_fields_for :class_files do |class_file| %>
         <%= render 'partials/class_file', f: class_file %>
       <% end %>
@@ -19,6 +19,9 @@
     </ul>
 
     <div class="tab-content">
+      <%= f.simple_fields_for :class_files do |class_file| %>
+        <div id="class_file_<%= class_file.object.id %>" class="tab-pane" role="tabpanel"><%= class_file.object.code %></div>
+      <% end %>
     </div>
 
   </div>
