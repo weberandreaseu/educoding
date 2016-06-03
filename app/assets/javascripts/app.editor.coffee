@@ -2,50 +2,82 @@
 #=require ace/markdown
 #=require ace/java
 
+# array to store the editor instances
+editors = []
+
 class Editor
 	constructor: (@editable) ->
 		console.log 'init editor'
-		tabs = $('.tab-content').children('div.tab-pane')
 
+		panes = $('.tab-content').children('div.tab-pane')
+
+		# set frist tab / pane to active
 		$('#class_file_tabs > .nav-item > .nav-link').first().addClass('active')
-		$('#class_files > .tab-content > .tab-pane').first().addClass('active')
+		panes.first().addClass('active')
 
-		for tab in tabs
-			this.initEditor tab, 'java'
+		for pane in panes
+			this.initEditor pane.id, 'java'
+		this.updateEventListener()
 
 	# init ace for the tab
-	initEditor: (tab, language) ->
-		editor = ace.edit tab.id
+	initEditor: (id, language) ->
+		console.log id
+		editor = ace.edit id
 		editor.setTheme 'ace/theme/chrome'
 		editor.getSession().setMode 'ace/mode/' + language
 		editor.$blockScrolling = Infinity
 		editor.setOptions
 			enableBasicAutocompletion: true
 			enableSnippets: true
-			wrap: 100
+			# wrap: 100
 
-	addClassFile: (class_file) ->
-    file_id = class_file.children('input').attr('id')
-    class_file.wrapInner('<a class="nav-link class_file_tab" href="#' + file_id  + '_tab"></a>')
-    
+		editors.push([editor, id])
+
 
 	renameClassFile: (class_file) ->
-		console.log class_file
-		class_file.children().prop('readonly', false);
+		input = class_file.children()
+		input.prop('readonly', false)
+
+		class_file.focusout ->
+			input.prop('readonly', true)
+			return
 
 	updateEventListener: ->
-		console.log 'event listnener updated'
+		tmp = this
 		$('.class_file_tab').dblclick ->
-			renameClassFile $(this)
+			tmp.renameClassFile($(this))
 			return
+
+	addClassFile: (class_file) ->
+		file_id = class_file.children('input').attr('id')
+		file_id = file_id.replace('_filename', '')
+		class_file.wrapInner('<a class="nav-link class_file_tab" href="#' + file_id + '"></a>')
+		$('#class-file-panes').append('<div id="' + file_id + ' class="tab-pane" role="tabpanel">// Your java code</div>')
+		this.initEditor file_id, 'java'
+		this.updateEventListener()
+
+	saveClassFiles: ->
+		for editor in editors
+			# get the editor content
+			code = editor[0].getValue()
+			# get the id
+			selector = '#' + editor[1] + '_code'
+
+			# schema of input id for hidden code field: task_class_files_attributes_4_code
+			# schema for id stored id's in editor: class_file_31
+			$(selector).val code
 
 
 $(document).on "page:change", ->
- 	# init editor only in tasks#new / tasks#edit
+	# init editor only in tasks#new / tasks#edit
 	return unless $(".tasks.new").length > 0 || $(".tasks.edit").length > 0
 	editor = new Editor true
 
+	$('#add-class-file').click ->
+		editor.saveClassFiles()
+		return
+
 	$('#class_files').on('cocoon:after-insert', (e, new_class_file) ->
-    editor.addClassFile new_class_file
-    return
-  )
+		editor.addClassFile new_class_file
+		return
+	)

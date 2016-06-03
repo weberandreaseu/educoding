@@ -18,7 +18,7 @@
       </li>
     </ul>
 
-    <div class="tab-content">
+    <div id="class-file-panes" class="tab-content">
       <%= f.simple_fields_for :class_files do |class_file| %>
         <div id="class_file_<%= class_file.object.id %>" class="tab-pane" role="tabpanel"><%= class_file.object.code %></div>
       <% end %>
@@ -26,5 +26,5 @@
 
   </div>
 
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit class: 'btn btn-primary', id: 'add-class-file' %>
 <% end %>
