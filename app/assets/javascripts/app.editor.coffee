@@ -52,7 +52,7 @@ class Editor
 		file_id = class_file.children('input').attr('id')
 		file_id = file_id.replace('_filename', '')
 		class_file.wrapInner('<a class="nav-link class_file_tab" href="#' + file_id + '"></a>')
-		$('#class-file-panes').append('<div id="' + file_id + ' class="tab-pane" role="tabpanel">// Your java code</div>')
+		$('#class-file-panes').append('<div id="' + file_id + '" class="tab-pane" role="tabpanel">// Your java code</div>')
 		this.initEditor file_id, 'java'
 		this.updateEventListener()
 
