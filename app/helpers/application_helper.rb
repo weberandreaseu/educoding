@@ -1,6 +1,5 @@
 module ApplicationHelper
-
-  # the markdown parser
+ # the markdown parser
   def markdown(text)
     # options and extensions at https://github.com/vmg/redcarpet
     options = {}
