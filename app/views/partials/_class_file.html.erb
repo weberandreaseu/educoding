@@ -2,6 +2,6 @@
   <a class="nav-link class_file_tab" data-toggle="tab" href="#class_file_<%= f.object.id %>" role="tab">
     <%= f.text_field :filename, readonly: true, class: 'class_file_name' %>
     <%= f.hidden_field :code, id: "class_file_#{f.object.id}_code" %>
-    <%= link_to_remove_association 'X', f %>
   </a>
+  <%= link_to_remove_association 'X', f %>
 </li>
