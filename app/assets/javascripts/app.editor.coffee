@@ -7,7 +7,11 @@ editors = []
 
 class Editor
 	constructor: (@editable) ->
-		console.log 'init editor'
+		console.log 'init editor - editable: ' + @editable
+
+		# init description editor for editable sessions
+		if @editable
+			this.initEditor 'editor_description', 'markdown'
 
 		panes = $('.tab-content').children('div.tab-pane')
 
@@ -15,11 +19,12 @@ class Editor
 		$('#class_file_tabs > .nav-item > .nav-link').first().addClass('active')
 		panes.first().addClass('active')
 
+		# init editor for each tab
 		for pane in panes
 			this.initEditor pane.id, 'java'
 		this.updateEventListener()
 
-	# init ace for the tab
+	# init ace editor
 	initEditor: (id, language) ->
 		console.log id
 		editor = ace.edit id
@@ -29,7 +34,6 @@ class Editor
 		editor.setOptions
 			enableBasicAutocompletion: true
 			enableSnippets: true
-			# wrap: 100
 
 		editors.push([editor, id])
 
@@ -48,6 +52,9 @@ class Editor
 			tmp.renameClassFile($(this))
 			return
 
+		# $('.class_file_tab').tab('show')
+		# TODO: make new tabs selectable
+
 	addClassFile: (class_file) ->
 		file_id = class_file.children('input').attr('id')
 		file_id = file_id.replace('_filename', '')
@@ -61,10 +68,10 @@ class Editor
 			# get the editor content
 			code = editor[0].getValue()
 			# get the id
-			selector = '#' + editor[1] + '_code'
-
-			# schema of input id for hidden code field: task_class_files_attributes_4_code
-			# schema for id stored id's in editor: class_file_31
+			id = editor[1]
+			# build selector
+			selector = '#' + id + '_code'
+			# set the value of input field
 			$(selector).val code
 
 

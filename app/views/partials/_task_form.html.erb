@@ -2,8 +2,11 @@
 
 <%= simple_form_for @task do |f| %>
   <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.hidden_field :description, id: 'editor_description_code' %>
   <%= f.input :score %>
+
+  <%= f.label :description %>
+  <div id="editor_description"><%= @task.description %></div>
   
   <h2>Scaffold</h2>
 
