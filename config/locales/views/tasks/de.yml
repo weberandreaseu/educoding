@@ -5,3 +5,8 @@ de:
     delete_task: Aufgabe wurde gelöscht
   confirm:
     delete_task: "Möchtest du %{task} wirklich löschen?"
+  actions:
+    create_task: "Aufgabe erstellen"
+    delete_task: "Aufgabe löschen"
+    edit_task: "Aufgabe bearbeiten"
+    all_tasks: "Alle Aufgaben"

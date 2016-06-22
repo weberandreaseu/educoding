@@ -1,15 +1,10 @@
 class SessionsController < ApplicationController
-  def new
-
-  end
-
   def create
-    user = User.find_by_email(params[:email].downcase)
+    user = User.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
       # TODO: extrak to log_in user in session_helper
       session[:user_id] = user.id
       redirect_to tasks_path, notice: t('messages.valid_login')
-      
     else
       flash.now[:danger] = t('messages.invalid_login')
       render "new"

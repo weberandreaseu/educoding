@@ -5,3 +5,8 @@ en:
     delete_task: "Task was deleted"
   confirm:
     delete_task: "Do you really want to delete %{task}?"
+  actions:
+    create_task: "Create Task"
+    delete_task: "Delete Task"
+    edit_task: "Edit Task"
+    all_tasks: "All Tasks"

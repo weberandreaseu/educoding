@@ -14,7 +14,7 @@ module FormHelper
 
   def fill_new_task_page(task)
     fill_in "Title", with: task.title
-    find(:xpath, "//input[@id='task_description']").set task.description
+    find(:xpath, "//div[@id='editor_description']").set task.description
     fill_in "Score", with: task.score
   end
 end
