@@ -1,5 +1,3 @@
-<h1><%= generate_title (@task)%></h1>
-
 <%= simple_form_for @task do |f| %>
   <%= f.input :title %>
   <%= f.hidden_field :description, id: 'editor_description_code' %>
