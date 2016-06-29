@@ -2,8 +2,11 @@
 
 FactoryGirl.define do
   factory :class_file do
-    code "MyText"
-    filename "MyString"
-    task_id 1
+    code  'class HelloWorld {'\
+          '    public static void main (String[] args) {'\
+          '        System.out.println("Hello World!");'\
+          '    }'\
+          '}'
+    filename "HelloWorld.java"
   end
 end
