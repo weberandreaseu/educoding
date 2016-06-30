@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  layout "sidebar", except: [:index]
   def index
     @tasks = Task.all
   end

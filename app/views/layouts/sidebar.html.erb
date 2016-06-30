@@ -1,0 +1,9 @@
+<% content_for :root do %>
+  <div id="content">
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
+  <div id="sidebar">
+    <%= yield :sidebar %>
+  </div>
+<% end %>
+<%= render template: "layouts/application" %>
