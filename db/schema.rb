@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701180849) do
+ActiveRecord::Schema.define(version: 20160702124826) do
 
   create_table "class_files", force: :cascade do |t|
     t.text     "code"
     t.string   "filename"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "code_id"
-    t.string   "code_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "codeable_id"
+    t.string   "codeable_type"
   end
 
   create_table "solutions", force: :cascade do |t|

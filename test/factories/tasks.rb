@@ -8,7 +8,7 @@ FactoryGirl.define do
 
     factory :task_with_class_files do
       after(:create) do |task|
-        create(:class_file, task: task)
+        create(:class_file, codeable: task)
       end
     end
 

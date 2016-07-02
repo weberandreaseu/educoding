@@ -1,5 +1,5 @@
 class Solution < ActiveRecord::Base
   belongs_to :user
   belongs_to :task
-  has_many :class_files, as: :code
+  has_many :class_files, as: :codeable, dependent: :destroy
 end

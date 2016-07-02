@@ -1,3 +1,3 @@
 class ClassFile < ActiveRecord::Base
-  belongs_to :code, polymorphic: true
+  belongs_to :codeable, polymorphic: true
 end
