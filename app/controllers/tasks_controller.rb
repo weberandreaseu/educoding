@@ -10,7 +10,6 @@ class TasksController < ApplicationController
 
   def update
     @task = Task.find_by_id(params[:id])
-
     if @task.update_attributes(task_params)
       redirect_to tasks_path, notice: t('messages.edit_task')
     else
@@ -18,8 +17,12 @@ class TasksController < ApplicationController
     end
   end
 
-  def show
-    @task = Task.find_by_id(params[:id])
+  def solve
+    if logged_in?
+      redirect_to new_solution_path(task: params[:id])
+    else
+      redirect_to login_path, notice: 'Please login'
+    end
   end
 
   def new

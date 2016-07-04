@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   scope "(:locale)", locale: /en|de/ do
     get 'login' => 'sessions#new', as:'login'
     post 'login' => 'sessions#create'
@@ -11,6 +10,10 @@ Rails.application.routes.draw do
     root 'welcome#index'
 
     resources :tasks
+    get 'task/:id/solve' => 'tasks#solve', as: 'solve_task'
+    
+    resources :solutions
+    # get 'solutions/new'
   end
 
   get '/:locale' => 'welcome#index'

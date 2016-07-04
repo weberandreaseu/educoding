@@ -1,0 +1,19 @@
+<div id="class_files">
+  <ul id="class_file_tabs" class="nav nav-tabs">
+    <%= f.simple_fields_for :class_files do |class_file| %>
+      <%= render 'partials/class_file', f: class_file %>
+    <% end %>
+
+    <% if editable %>
+      <li class="links nav-item">
+        <%= link_to_add_association 'add file', f, :class_files, id: 'add_class_file', class: 'nav-link', partial: 'partials/class_file_fields' %>
+      </li>
+    <% end %>
+  </ul>
+
+  <div id="class-file-panes" class="tab-content">
+    <%= f.simple_fields_for :class_files do |class_file| %>
+      <div id="class_file_<%= class_file.object.id %>" class="tab-pane" role="tabpanel"><%= class_file.object.code %></div>
+    <% end %>
+  </div>
+</div>

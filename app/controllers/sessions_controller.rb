@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    user = User.find_by(email: params[:email].downcase)
+    user = User.find_by(email: params[:email]&.downcase)
     if user && user.authenticate(params[:password])
       # TODO: extrak to log_in user in session_helper
       session[:user_id] = user.id

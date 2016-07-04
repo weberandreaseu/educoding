@@ -1,2 +1,14 @@
 <h1><%= @task.title %></h1>
 <%= markdown(@task.description) %>
+
+<%= render 'partials/editor', editable: false %>
+
+<% content_for :sidebar do %>
+  <h4>Info</h4>
+  <p>Score: <%= @task.score %></p>
+
+  <h4>Program</h4>
+
+  <div id="run" class="btn btn-secondary">Run</div>
+
+<% end %>
