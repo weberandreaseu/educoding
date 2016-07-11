@@ -1,42 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Educoding</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-</head>
+<%= render 'partials/header' %>
 <body class="<%= controller_name %> <%= action_name %>">
   <%= render 'partials/navbar' %>
 
-  <% if flash[:notice] %>
-  <div class="alert alert-success" role="alert">
-    <%= flash[:notice] %>
-  </div>
-  <% end %>
-  <% if flash[:danger] %>
-  <div class="alert alert-danger" role="alert">
-    <%= flash[:danger] %>
-  </div>
-  <% end %>
+  <%= render 'partials/notifications' %>
 
   <div class="container">
-    <%= yield %>
+    <%= content_for?(:root) ? yield(:root) : yield %>
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <h5><%= t('footer.select_language') %></h5>
-          <ul class="language-picker">
-            <li><%= link_to "Deutsch", locale_path('de') %></li>
-            <li><%= link_to "English", locale_path('en') %></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <%= render 'partials/footer' %>
 </body>
 </html>

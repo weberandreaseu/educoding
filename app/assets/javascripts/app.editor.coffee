@@ -73,9 +73,14 @@ class Editor
 
 
 $(document).on "page:change", ->
-  # init editor only in tasks#new / tasks#edit
-  return unless $(".tasks.new").length > 0 || $(".tasks.edit").length > 0
-  editor = new Editor true
+  # init editable editor only in tasks#new / tasks#edit
+  if $(".tasks.new").length > 0 || $(".tasks.edit").length > 0
+    editor = new Editor true
+  # init non editable editor in tasks#show
+  else if $(".tasks.show").length > 0
+    editor = new Editor false
+  else
+    return
 
   $('#add-class-file').click ->
     editor.saveClassFiles()

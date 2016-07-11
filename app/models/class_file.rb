@@ -1,3 +1,3 @@
 class ClassFile < ActiveRecord::Base
-  belongs_to :task
+  belongs_to :codeable, polymorphic: true
 end

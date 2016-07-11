@@ -5,5 +5,12 @@ FactoryGirl.define do
     title "Java Hello World"
     description "Please implement Hello Word in Java"
     score 4
+
+    factory :task_with_class_files do
+      after(:create) do |task|
+        create(:class_file, codeable: task)
+      end
+    end
+
   end
 end
