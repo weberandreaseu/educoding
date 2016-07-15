@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def run_solution(solution)
+    solution.assign_attributes(solution_params)
     respond_to do |format|
       format.js
     end

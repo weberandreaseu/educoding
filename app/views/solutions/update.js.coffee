@@ -1,1 +1,1 @@
-$('#stdout').text('<%= @solution.task.title %>')
+$('#stdout').text('<%= @solution.run %>')

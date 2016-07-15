@@ -16,10 +16,7 @@ class SolutionsController < ApplicationController
   def update
     @solution = Solution.find_by_id(params[:id])
     if params[:solution][:run] == 'true'
-      # run_solution @solution
-      respond_to do |format|
-        format.js
-      end
+      run_solution @solution
     else
       update_solution @solution
     end

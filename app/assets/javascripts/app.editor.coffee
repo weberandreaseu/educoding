@@ -81,10 +81,13 @@ $(document).on "page:change", ->
     editor = new Editor false
     # set hidden field for run true
     $('#run-solution').click ->
+      editor.saveClassFiles()
       $('#solution_run').val true
+      return
     # set hidden field for run false
     $('#save-solution').click ->
       $('#solution_run').val false
+      return
   else
     return
 
