@@ -1,16 +1,4 @@
-<h1><%= @task.title %></h1>
-
-<%= markdown(@task.description) %>
-
-<%= simple_form_for @solution do |f| %>
-
-  <%= f.text_field :score %>
-  <%= f.simple_fields_for :class_files do |class_file| %>
-    <%= class_file.text_field :code %>
-  <% end %>
-
-  <%= f.submit %> 
-<% end %>
+<%= render 'partials/solve_task' %>
 
 <% content_for :sidebar do  %>
 <% end %>

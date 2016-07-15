@@ -12,6 +12,21 @@ class ApplicationController < ActionController::Base
     !current_user.nil?
   end
 
+  def update_solution(solution)
+    if solution.update_attributes(solution_params.except(:filename))
+      redirect_to tasks_path, notice: 'Solution was updated'
+    else
+      redirect_to edit_solution_path(solution)
+    end
+  end
+
+  def run_solution(solution)
+    solution.assign_attributes(solution_params)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
 
   def set_locale

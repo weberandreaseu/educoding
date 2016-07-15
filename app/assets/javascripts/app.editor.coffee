@@ -48,7 +48,7 @@ class Editor
 
   updateEventListener: ->
     tmp = this
-    $('.class_file_tab').dblclick ->
+    $('.class_file_tab.editable').dblclick ->
       tmp.renameClassFile($(this))
       return
 
@@ -76,13 +76,26 @@ $(document).on "page:change", ->
   # init editable editor only in tasks#new / tasks#edit
   if $(".tasks.new").length > 0 || $(".tasks.edit").length > 0
     editor = new Editor true
-  # init non editable editor in tasks#show
-  else if $(".tasks.show").length > 0
+  # init non editable editor in solutions#new /solutions#edit
+  else if $(".solutions.new").length > 0 || $(".solutions.edit").length > 0
     editor = new Editor false
+    # set hidden field for run true
+    $('#run-solution').click ->
+      editor.saveClassFiles()
+      $('#solution_run').val true
+      return
+    # set hidden field for run false
+    $('#save-solution').click ->
+      $('#solution_run').val false
+      return
   else
     return
 
   $('#add-class-file').click ->
+    editor.saveClassFiles()
+    return
+
+  $('#save-solution').click ->
     editor.saveClassFiles()
     return
 

@@ -57,15 +57,11 @@ footer {
   list-style-type: none;
 }
 
-.current-user {
-  float: right;
-}
-
 .nav-item {
   position: relative;
 }
 
-.class_file_name {
+.class_file_name, .edit_class_file_name {
   border: 0px;
   min-width: 120px;
   font-size: 14px;
@@ -78,4 +74,10 @@ footer {
   &:hover {
     text-decoration: none;
   }
+}
+
+#stdout {
+  height: 100px;
+  background-color: $gray-lightest;
+  padding: 10px;
 }

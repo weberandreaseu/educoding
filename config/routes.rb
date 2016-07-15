@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     get 'task/:id/solve' => 'tasks#solve', as: 'solve_task'
     
     resources :solutions
-    # get 'solutions/new'
+    put 'solution/:id/run' => 'solutions#run', as: 'run_solution'
   end
 
   get '/:locale' => 'welcome#index'

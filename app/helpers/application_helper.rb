@@ -8,4 +8,12 @@ module ApplicationHelper
     @markdown ||= Redcarpet::Markdown.new(renderer, extensions)
     @markdown.render(text).html_safe
   end
+
+  def get_class_file_id(class_file)
+    if class_file.object.id.nil?
+      File.basename( class_file.object.filename, ".*" )
+    else
+      class_file.object.id
+    end
+  end
 end

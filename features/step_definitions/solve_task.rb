@@ -7,7 +7,8 @@ Given(/^a student$/) do
 end
 
 When(/^the student visits the task page$/) do
-  visit task_path(id: @task.id)
+  visit tasks_path
+  click_link @task.title
 end
 
 When(/^he completes the scaffold$/) do
