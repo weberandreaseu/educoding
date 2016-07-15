@@ -79,6 +79,12 @@ $(document).on "page:change", ->
   # init non editable editor in solutions#new /solutions#edit
   else if $(".solutions.new").length > 0 || $(".solutions.edit").length > 0
     editor = new Editor false
+    # set hidden field for run true
+    $('#run-solution').click ->
+      $('#solution_run').val true
+    # set hidden field for run false
+    $('#save-solution').click ->
+      $('#solution_run').val false
   else
     return
 
