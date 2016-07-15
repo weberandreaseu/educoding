@@ -1,0 +1,13 @@
+<h1><%= @task.title %></h1>
+
+<%= markdown(@task.description) %>
+
+<%= simple_form_for @solution do |f| %>
+  <%= f.association :task, input_html: { hidden: true }, label: false %>
+  <%= f.simple_fields_for :class_files do |class_file| %>
+    <%= class_file.object.filename %>
+    <%= class_file.text_field :code %>
+  <% end %>
+
+  <%= f.button :submit, class: 'btn-primary' %>
+<% end %>
