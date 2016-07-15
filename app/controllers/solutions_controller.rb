@@ -15,7 +15,7 @@ class SolutionsController < ApplicationController
 
   def update
     @solution = Solution.find_by_id(params[:id])
-    if @solution.update_attributes(solution_params)
+    if @solution.update_attributes(solution_params.except(:filename))
       redirect_to tasks_path, notice: 'Solution was updated'
     else
       redirect_to edit_solution_path(@solution)

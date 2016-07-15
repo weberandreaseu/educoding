@@ -4,10 +4,22 @@
 
 <%= simple_form_for @solution do |f| %>
   <%= f.association :task, input_html: { hidden: true }, label: false %>
-  <%= f.simple_fields_for :class_files do |class_file| %>
-    <%= class_file.object.filename %>
-    <%= class_file.text_field :code %>
-  <% end %>
 
-  <%= f.button :submit, class: 'btn-primary' %>
+  <%= render 'partials/editor', editable: false, f: f %>
+
+  <%= f.button :submit, class: 'btn-primary', id: 'save-solution' %>
+
+  <% content_for :sidebar do %>
+    <h4>Info</h4>
+    <p>Score: <%= @task.score %></p>
+
+    <h4>Program</h4>
+
+    <% if @solution.persisted? %>
+      <p>Last saved: <%= @solution.updated_at %></p>
+      <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: 'Bist du sicher?' }%>
+    <% end %>
+
+    <div id="run" class="btn btn-secondary">Run</div>
+  <% end %>
 <% end %>

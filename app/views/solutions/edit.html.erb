@@ -1,5 +1,1 @@
 <%= render 'partials/solve_task' %>
-
-<% content_for :sidebar do  %>
-  <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-secondary', method: "delete", data: {confirm: 'Bist du sicher?' }%>
-<% end %>

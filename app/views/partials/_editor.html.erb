@@ -1,19 +1,31 @@
 <div id="class_files">
   <ul id="class_file_tabs" class="nav nav-tabs">
+    <%# class file tabs %>
     <%= f.simple_fields_for :class_files do |class_file| %>
-      <%= render 'partials/class_file', f: class_file %>
+      <li class="nav-item nested-fields">
+        <a class="nav-link class_file_tab <%= 'editable' if editable %>" data-toggle="tab" href="#class_file_<%= get_class_file_id class_file %>" role="tab">
+          <%= class_file.hidden_field :code, id: "class_file_#{get_class_file_id class_file}_code" %>
+          <%= class_file.text_field :filename, readonly: true, class: 'class_file_name' %>
+        </a>
+
+        <% if editable %>
+          <%= link_to_remove_association 'X', f %>
+        <% end %>
+      </li>
     <% end %>
 
+    <%# add class file button %>
     <% if editable %>
       <li class="links nav-item">
         <%= link_to_add_association 'add file', f, :class_files, id: 'add_class_file', class: 'nav-link', partial: 'partials/class_file_fields' %>
       </li>
     <% end %>
   </ul>
-
+  
+  <%# class file content %>
   <div id="class-file-panes" class="tab-content">
     <%= f.simple_fields_for :class_files do |class_file| %>
-      <div id="class_file_<%= class_file.object.id %>" class="tab-pane" role="tabpanel"><%= class_file.object.code %></div>
+      <div id="class_file_<%= get_class_file_id class_file %>" class="tab-pane" role="tabpanel"><%= class_file.object.code %></div>
     <% end %>
   </div>
 </div>
