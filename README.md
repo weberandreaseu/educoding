@@ -4,14 +4,14 @@ Educoding is an open source coding platform designed to support students learnin
 
 All tasks can be managed by privileged persons. The access level depend on the user's role (admin, lecturer, tutor or student).
 
-*Note: Educoding is work in progress. Not all features are implemented yet. It should not be used productive enviroments.*
+*Note: Educoding is work in progress. Not all features are implemented yet. It should not be used in productive enviroments.*
 
 ## Requirements
 - An UNIX operating system (Windows is currently not supported).
 - Ruby, preferably in the latest version 2.3.1. To update Ruby, I recommend [rbenv](https://github.com/rbenv/rbenv).
 - [Bundler](https://github.com/bundler/bundler) to manage the dependencies.
 - Sqlite3 as the DBMS. Later, educoding will use PostgeSQL.
-- An installed JDK. Make sure that `java`and `javac` are in your path variable.
+- An installed [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Make sure that `java`and `javac` are in your path variable.
 
 ## Installation
 Clone this repository with `git clone https://github.com/weberandreaseu/educoding.git` or download the .zip.
