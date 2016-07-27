@@ -11,7 +11,8 @@ All tasks can be managed by privileged persons. The access level depend on the u
 - Ruby, preferably in the latest version 2.3.1. To update Ruby, I recommend [rbenv](https://github.com/rbenv/rbenv).
 - [Bundler](https://github.com/bundler/bundler) to manage the dependencies.
 - Sqlite3 as the DBMS. Later, educoding will use PostgeSQL.
-- An installed JDK. Make sure that `java`and `javac` are in your path variable.
+- An installed JDK.
+- [Gradle](https://gradle.org/)
 
 ## Installation
 Clone this repository with `git clone https://github.com/weberandreaseu/educoding.git` or download the .zip.

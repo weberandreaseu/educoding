@@ -1,0 +1,55 @@
+apply plugin: 'java'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	testCompile 'junit:junit:4.8.2'
+}
+
+test {
+	reports {
+		junitXml.enabled = true
+		html.enabled = false
+	}
+}
+
+jar {
+	enabled = false
+}
+
+def buildDir = new File("build")
+if (!buildDir.exists()) {
+	buildDir.mkdirs()
+}
+
+// Run task with arguments by AdamSykwalker
+// Date 27.07.16
+// https://stackoverflow.com/questions/34875637/how-to-pass-multiple-parameters-in-command-line-when-running-gradle-task
+task run(type: JavaExec) {
+	println rootProject
+	def mainfile = ''
+	if (project.hasProperty('package')) {
+		mainfile += project.getProperty('package') + '.'
+	}
+	if (project.hasProperty('main')) {
+		mainfile += project.getProperty('main')
+	}
+	classpath = sourceSets.main.runtimeClasspath
+	main = mainfile
+	standardOutput = new FileOutputStream("${buildDir}${File.separator}stdout.log")
+	standardInput = new FileInputStream("src${File.separator}stdin")
+}
+
+// Logging script by Rene Groeschke
+// Date 25.07.16
+// https://gist.github.com/breskeby/11282169
+tasks.withType(JavaCompile){
+	def compileLog = file("${buildDir}${File.separator}compile.log")
+	logging.addStandardErrorListener(new StandardOutputListener(){
+		void onOutput(CharSequence output){
+			compileLog << output
+		}
+	})
+}
