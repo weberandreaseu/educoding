@@ -12,6 +12,8 @@ class Editor
     # init description editor for editable sessions
     if @editable
       this.initEditor 'editor_description', 'markdown'
+      this.initEditor 'editor_basic_test', 'java'
+      this.initEditor 'editor_advanced_test', 'java'
 
     panes = $('.tab-content').children('div.tab-pane')
 

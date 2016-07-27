@@ -17,7 +17,6 @@ class Solution < ActiveRecord::Base
     FileUtils::mkdir_p(class_file_dir)
     FileUtils.cp File.join("gradle", "java.gradle"), File.join(user_dir, "build.gradle")
 
-
     files = self.class_files + self.task.class_files.hidden
     files.each do |class_file|
       file = File.new(File.join(class_file_dir, class_file.filename), 'w')

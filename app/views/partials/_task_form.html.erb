@@ -1,14 +1,23 @@
 <%= simple_form_for @task do |f| %>
   <%= f.input :title %>
-  <%= f.hidden_field :description, id: 'editor_description_code' %>
   <%= f.input :score %>
 
   <%= f.label :description %>
   <div id="editor_description"><%= @task.description %></div>
+  <%= f.hidden_field :description, id: 'editor_description_code' %>
   
-  <h2>Scaffold</h2>
-
+  <h3>Scaffold</h3>
   <%= render 'partials/editor', editable: true, f: f %>
+
+  <%= f.input :stdin %>
+
+  <h3>Basic Test</h3>
+  <div id="editor_basic_test"><%= @task.basic_test %></div>
+  <%= f.hidden_field :basic_test, id: 'editor_basic_test_code' %>
+
+  <h3>Advanced Test</h3>
+  <div id="editor_advanced_test"><%= @task.advanced_test %></div>
+  <%= f.hidden_field :advanced_test, id: 'editor_advanced_test_code' %>
 
   <%= f.submit class: 'btn btn-primary', id: 'add-class-file' %>
 <% end %>

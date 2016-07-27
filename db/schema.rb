@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704192940) do
+ActiveRecord::Schema.define(version: 20160727163831) do
 
   create_table "class_files", force: :cascade do |t|
     t.text     "code"
@@ -35,8 +35,11 @@ ActiveRecord::Schema.define(version: 20160704192940) do
     t.string   "title"
     t.text     "description"
     t.integer  "score"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.text     "basic_test"
+    t.text     "advanced_test"
+    t.text     "stdin"
   end
 
   create_table "users", force: :cascade do |t|
