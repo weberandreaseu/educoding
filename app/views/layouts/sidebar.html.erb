@@ -1,9 +1,9 @@
 <% content_for :root do %>
 <div class="row">
-<div id="content" class="col-md-9">
+<div id="content" class="col-lg-9">
     <%= content_for?(:content) ? yield(:content) : yield %>
   </div>
-  <div id="sidebar" class="col-md-3">
+  <div id="sidebar" class="col-lg-3">
     <%= yield :sidebar %>
   </div>
 </div>

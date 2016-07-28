@@ -1,9 +1,40 @@
 @import "bootstrap-variables";
 
+@import "bootstrap";
+
 .ace_editor {
 	min-height: 350px;
 }
 
 .ace-chrome {
 	background-color: $gray-lightest !important;
+}
+
+.solution_stdin textarea {
+  @extend pre;
+  height: 150px;
+  background-color: $gray-lightest;
+  outline: none;
+  resize: none;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+}
+
+.solution_custom_input {
+  margin: 0;
+  display: inline-block;
+  .checkbox {
+    margin: 0;
+  }
+}
+
+.ace_editor {
+  font-family: $font-family-monospace !important;
+  font-size: 13px !important;
+}
+
+#input-headline {
+  display: inline-block;
+  padding-right: 10px;
 }

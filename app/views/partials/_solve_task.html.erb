@@ -13,9 +13,9 @@
   <%= f.button :submit, 'Run', id: 'run-solution', class: 'btn-success' %>
   <div class="row">
     <div class="col-md-6">
-      <h5>Input</h5>
+      <h5 id="input-headline">Input</h5>
       <%= f.input :custom_input, as: :boolean, inline_label: 'Use custom input' %>
-      <%= f.input :stdin, as: :text, label: false, value: @task.stdin, class: 'pre-scrollable log' %>
+      <%= f.input :stdin, as: :text, label: false, placeholder: @task.stdin %>
     </div>
     <div class="col-md-6">
       <h5>Output</h5>
@@ -24,10 +24,11 @@
   </div>
 <% end %>
 
-
-
 <h5>Errors</h5>
 <pre id="compiler_message" class="pre-scrollable log"></pre>
+
+<h5>Test Results</h5>
+<div id="test_results"></div>
 
 <% content_for :sidebar do %>
   <h3>Info</h3>

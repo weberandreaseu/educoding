@@ -11,6 +11,8 @@ class Solution < ActiveRecord::Base
     read_results
   end
 
+  private
+
   def serialize
     self.user_dir = File.join("content", "user_#{self.user.id}")
     src_dir = File.join(user_dir, "src")
@@ -37,23 +39,37 @@ class Solution < ActiveRecord::Base
     result = `cd #{user_dir} && gradle run build -Pmain=Main`
   end
 
+
+  # https://stackoverflow.com/questions/31008613/merge-two-xml-files-in-nokogiri
   def read_results
     build_dir = File.join(user_dir, 'build')
-    @advanced = File.open(File.join(build_dir, 'test-results', 'TEST-AdvancedTest.xml')) { |f| Nokogiri::XML(f) }
-    @basic = File.open(File.join(build_dir, 'test-results', 'TEST-BasicTest.xml')) { |f| Nokogiri::XML(f) }
-    a = Hash.from_xml(@advanced.to_s)
+    basic = File.open(File.join(build_dir, 'test-results', 'TEST-BasicTest.xml')) { |f| Nokogiri::XML(f) }
+    advanced = File.open(File.join(build_dir, 'test-results', 'TEST-AdvancedTest.xml')) { |f| Nokogiri::XML(f) }
+
+    testcases = advanced.search('testcase')
+    basic.at('testsuite').add_child(testcases)
+
+    @basic = Hash.from_xml(basic.to_s)["testsuite"]
+    @advanced = Hash.from_xml(advanced.to_s)["testsuite"]
+
+    # summarize test suites
+    overwrite_hash("tests")
+    overwrite_hash("skipped")
+    overwrite_hash("failures")
+    overwrite_hash("errors")
+    overwrite_hash("time")
+
     compiler = IO.read(File.join(build_dir, 'compile.log'))
     compiler.gsub! File.absolute_path(user_dir), ''
     stdout = IO.read(File.join(build_dir, 'stdout.log'))
-    result = TestResult.new(compiler_message: compiler, stdout: stdout)
+    result = TestResult.new(compiler_message: compiler, stdout: stdout, test: @basic)
   end
-  private
 
-  # def testcase attribute
-  #   unless attribute == 'time'
-  #     return @advanced.xpath("//testsuite").attr(attribute).value.to_i + @basic.xpath("//testsuite").attr(attribute).value.to_i 
-  #   else
-  #     return @advanced.xpath("//testsuite").attr(attribute).value.to_f + @basic.xpath("//testsuite").attr(attribute).value.to_f 
-  #   end
-  # end
+  def overwrite_hash(key)
+    unless key == 'time'
+      @basic[key] = @advanced[key].to_i + @basic[key].to_i
+    else
+      @basic[key] = @advanced[key].to_f + @basic[key].to_f
+    end
+  end
 end
