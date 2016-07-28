@@ -76,8 +76,11 @@ footer {
   }
 }
 
-#stdout {
-  height: 100px;
+pre.log {
+  height: 150px;
   background-color: $gray-lightest;
   padding: 10px;
+  p {
+    margin: 0;
+  }
 }
