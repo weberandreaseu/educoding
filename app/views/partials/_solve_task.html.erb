@@ -11,20 +11,20 @@
 
   <%= f.button :submit, 'Save', id: 'save-solution', class: 'btn-primary' %>
   <%= f.button :submit, 'Run', id: 'run-solution', class: 'btn-success' %>
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Input</h5>
+      <%= f.input :custom_input, as: :boolean, inline_label: 'Use custom input' %>
+      <%= f.input :stdin, as: :text, label: false, value: @task.stdin, class: 'pre-scrollable log' %>
+    </div>
+    <div class="col-md-6">
+      <h5>Output</h5>
+      <pre id="stdout" class="pre-scrollable log"></pre>
+    </div>  
+  </div>
 <% end %>
 
 
-<div class="row">
-  <div class="col-md-6">
-    <h5>Input</h5>
-    <%# f.input :stdin, placeholder: @task.stdin %>
-    <pre id="stdint" class="pre-scrollable log"></pre>
-  </div>
-  <div class="col-md-6">
-    <h5>Output</h5>
-    <pre id="stdout" class="pre-scrollable log"></pre>
-  </div>  
-</div>
 
 <h5>Errors</h5>
 <pre id="compiler_message" class="pre-scrollable log"></pre>

@@ -15,6 +15,11 @@ class SolutionsController < ApplicationController
 
   def update
     @solution = Solution.find_by_id(params[:id])
+    if params[:solution][:custom_input] == '1'
+      @solution.stdin = params[:solution][:stdin]
+    else
+      @solution.stdin = @solution.task.stdin
+    end
     if params[:solution][:run] == 'true'
       run_solution @solution
     else

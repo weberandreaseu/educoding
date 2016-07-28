@@ -3,7 +3,7 @@ class Solution < ActiveRecord::Base
   belongs_to :task
   has_many :class_files, as: :codeable, dependent: :destroy
   accepts_nested_attributes_for :class_files
-  attr_accessor :user_dir
+  attr_accessor :user_dir, :custom_input, :stdin
 
   def run
     serialize
@@ -26,7 +26,7 @@ class Solution < ActiveRecord::Base
       file.syswrite(class_file.code)
     end
     stdin = File.new(File.join(src_dir, 'stdin'), 'w')
-    stdin.syswrite(self.task.stdin)
+    stdin.syswrite(self.stdin)
     basic_test = File.new(File.join(test_dir, 'BasicTest.java'), 'w')
     basic_test.syswrite(self.task.basic_test)
     advanced_test = File.new(File.join(test_dir, 'AdvancedTest.java'), 'w')
