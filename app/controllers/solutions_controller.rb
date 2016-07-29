@@ -1,6 +1,4 @@
 class SolutionsController < ApplicationController
-  layout "sidebar"
-
   def new
     @solution = Solution.find_or_initialize_by(user_id: current_user.id, task_id: params[:task])
     if @solution.new_record?

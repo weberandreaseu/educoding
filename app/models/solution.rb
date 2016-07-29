@@ -3,7 +3,7 @@ class Solution < ActiveRecord::Base
   belongs_to :task
   has_many :class_files, as: :codeable, dependent: :destroy
   accepts_nested_attributes_for :class_files
-  attr_accessor :user_dir, :custom_input, :stdin, :stdout, :compiler_message
+  attr_accessor :user_dir, :custom_input, :stdin, :basic, :stdout, :compiler_message
 
   def run
     serialize
@@ -89,7 +89,7 @@ class Solution < ActiveRecord::Base
 
   def add_attribute(key, value)
     if key == 'time'
-      @basic.at('testsuite')[key] = value.to_f + @advanced.at('testsuite')[key].to_f
+      @basic.at('testsuite')[key] = (value.to_f + @advanced.at('testsuite')[key].to_f).round(4)
     else
       @basic.at('testsuite')[key] = value.to_i + @advanced.at('testsuite')[key].to_i
     end

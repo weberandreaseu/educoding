@@ -84,3 +84,11 @@ pre.log {
     margin: 0;
   }
 }
+
+.card.card-outline-danger {
+  border-color: $brand-danger;
+}
+
+.card.card-outline-success {
+  border-color: $brand-success;
+}
