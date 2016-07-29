@@ -4,7 +4,7 @@ Educoding is an open source coding platform designed to support students learnin
 
 All tasks can be managed by privileged persons. The access level depend on the user's role (admin, lecturer, tutor or student).
 
-*Note: Educoding is work in progress. Not all features are implemented yet. It should not be used productive enviroments.*
+*Note: Educoding is work in progress. Not all features are implemented yet. It should not be used in productive enviroments.*
 
 ## Requirements
 - An UNIX operating system (Windows is currently not supported).
