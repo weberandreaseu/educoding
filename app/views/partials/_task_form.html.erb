@@ -7,6 +7,8 @@
   <%= f.hidden_field :description, id: 'editor_description_code' %>
   
   <h3>Scaffold</h3>
+  <%= f.input :package %>
+  <%= f.input :main, placeholder: 'Classname.java' %>
   <%= render 'partials/editor', editable: true, f: f %>
 
   <%= f.input :stdin %>

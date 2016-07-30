@@ -47,6 +47,6 @@ class TasksController < ApplicationController
   private
   
   def task_params
-    params.require(:task).permit(:title, :description, :basic_test, :advanced_test, :stdin, :score, class_files_attributes: [:id, :filename, :code, :visible, :_destroy])
+    params.require(:task).permit(:title, :description, :basic_test, :advanced_test, :stdin, :package, :main, :score, class_files_attributes: [:id, :filename, :code, :visible, :_destroy])
   end
 end

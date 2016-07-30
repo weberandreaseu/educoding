@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727163831) do
+ActiveRecord::Schema.define(version: 20160730141256) do
 
   create_table "class_files", force: :cascade do |t|
     t.text     "code"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20160727163831) do
     t.text     "basic_test"
     t.text     "advanced_test"
     t.text     "stdin"
+    t.string   "package"
+    t.string   "main"
   end
 
   create_table "users", force: :cascade do |t|

@@ -40,7 +40,16 @@ class Solution < ActiveRecord::Base
   end
 
   def gradle
-    `cd #{user_dir} && gradle run build -Pmain=Main`
+    command = "cd #{user_dir} && gradle run build"
+    if self.task.main.empty?
+      return
+    else
+      command += " -Pmain=#{self.task.main}"
+    end
+    unless self.task.package.empty?
+      command += " -Ppackage=#{self.task.package}"
+    end
+    `#{command}`
   end
 
   def read_results
