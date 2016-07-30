@@ -9,6 +9,7 @@ class Solution < ActiveRecord::Base
     serialize
     gradle
     read_results
+    FileUtils.rm_rf(self.user_dir)
   end
 
   private

@@ -32,15 +32,10 @@
   <p>Run solution to see test results...</p>
 </div>
 
-<% content_for :sidebar do %>
-  <h3>Info</h3>
-  <p>Score: <%= @task.score %></p>
+<h5>Info</h5>
+<p>Score: <%= @task.score %></p>
 
-  <h3>Program</h3>
-
-  <% if @solution.persisted? %>
-    <p>Last saved: <%= @solution.updated_at %></p>
-    <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: 'Bist du sicher?' }%>
-  <% end %>
-
+<% if @solution.persisted? %>
+  <p>Last saved: <%= @solution.updated_at %></p>
+  <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: 'Bist du sicher?' }%>
 <% end %>
