@@ -1,6 +1,7 @@
 <% @solution.run %>
-$('#stdout').html('<%= simple_format(@solution.stdout) %>')
-$('#compiler_message').empty().append("""<%= simple_format(@solution.compiler_message.html_safe) %>""")
+$('#test_results').empty()
+$('#stdout').html("""<%= @solution.stdout %>""")
+$('#error_message').empty().append("""<%= @solution.error_message.html_safe %>""")
 # render test results
 <% if @solution.basic %>
 $('#test_results').html('<table class="table" id="test_summary"></table><div id="testcases" class="row"></div>')

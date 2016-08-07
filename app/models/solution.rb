@@ -3,7 +3,7 @@ class Solution < ActiveRecord::Base
   belongs_to :task
   has_many :class_files, as: :codeable, dependent: :destroy
   accepts_nested_attributes_for :class_files
-  attr_accessor :user_dir, :custom_input, :stdin, :basic, :stdout, :compiler_message
+  attr_accessor :user_dir, :custom_input, :stdin, :basic, :stdout, :error_message
 
   def run
     serialize
@@ -55,8 +55,8 @@ class Solution < ActiveRecord::Base
   def read_results
     build_dir = File.join(user_dir, 'build')
     @stdout = read_file(File.join(build_dir, 'stdout.log'), 'No output')
-    @compiler_message = read_file(File.join(build_dir, 'compile.log'), 'Compilation successful')
-    @compiler_message.gsub!(File.absolute_path(user_dir), '') unless @compiler_message == 'Compilation successful'
+    @error_message = read_file(File.join(build_dir, 'error.log'), 'Compilation successful')
+    @error_message.gsub!(File.absolute_path(user_dir), '') unless @error_message == 'Compilation successful'
 
     basic_file = open_file(File.join(build_dir, 'test-results', 'TEST-BasicTest.xml'))
     advanced_file = open_file(File.join(build_dir, 'test-results', 'TEST-AdvancedTest.xml'))

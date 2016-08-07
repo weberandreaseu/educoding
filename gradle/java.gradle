@@ -46,10 +46,19 @@ task run(type: JavaExec) {
 // Date 25.07.16
 // https://gist.github.com/breskeby/11282169
 tasks.withType(JavaCompile){
-	def compileLog = file("${buildDir}${File.separator}compile.log")
+	def compilerErrors = file("${buildDir}${File.separator}error.log")
 	logging.addStandardErrorListener(new StandardOutputListener(){
 		void onOutput(CharSequence output){
-			compileLog << output
+			compilerErrors << output
+		}
+	})
+}
+
+tasks.withType(JavaExec){
+	def runtimeErrors = file("${buildDir}${File.separator}error.log")
+	logging.addStandardErrorListener(new StandardOutputListener(){
+		void onOutput(CharSequence output){
+			runtimeErrors << output
 		}
 	})
 }
