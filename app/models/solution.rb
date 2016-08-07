@@ -15,7 +15,7 @@ class Solution < ActiveRecord::Base
   private
 
   def serialize
-    self.user_dir = File.join('content', "user_#{self.user.id}")
+    @user_dir = File.join('content', "user_#{self.user.id}")
     src_dir = File.join(user_dir, 'src')
     class_file_dir = File.join(src_dir, 'main', 'java')
     test_dir = File.join(src_dir, 'test', 'java')
@@ -29,14 +29,9 @@ class Solution < ActiveRecord::Base
       file.syswrite(class_file.code)
     end
 
-    stdin = File.new(File.join(src_dir, 'stdin'), 'w')
-    stdin.syswrite(self.stdin)
-
-    basic_test = File.new(File.join(test_dir, 'BasicTest.java'), 'w')
-    basic_test.syswrite(self.task.basic_test)
-
-    advanced_test = File.new(File.join(test_dir, 'AdvancedTest.java'), 'w')
-    advanced_test.syswrite(self.task.advanced_test)
+    write_file(File.join(src_dir, 'stdin'), self.stdin)
+    write_file(File.join(test_dir, 'BasicTest.java'), self.task.basic_test)
+    write_file(File.join(test_dir, 'AdvancedTest.java'), self.task.advanced_test)
   end
 
   def gradle
@@ -120,5 +115,10 @@ class Solution < ActiveRecord::Base
     rescue
       message
     end
+  end
+
+  def write_file(path, content)
+    file = File.new(path, 'w')
+    file.syswrite(content)
   end
 end
