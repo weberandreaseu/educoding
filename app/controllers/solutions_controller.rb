@@ -13,11 +13,7 @@ class SolutionsController < ApplicationController
 
   def update
     @solution = Solution.find_by_id(params[:id])
-    if params[:solution][:custom_input] == '1'
-      @solution.stdin = params[:solution][:stdin]
-    else
-      @solution.stdin = @solution.task.stdin
-    end
+    set_standard_input
     if params[:solution][:run] == 'true'
       run_solution @solution
     else
@@ -33,8 +29,11 @@ class SolutionsController < ApplicationController
   def create
     @solution = Solution.new(solution_params)
     @solution.user = current_user
-    if @solution.save
-      redirect_to tasks_path, notice: 'Solution was saved'
+    set_standard_input
+    if params[:solution][:run] == 'true'
+      run_solution @solution
+    elsif @solution.save
+      redirect_to edit_solution_path(@solution), notice: 'Solution was saved'
     else
       render 'new'
     end
@@ -50,5 +49,13 @@ class SolutionsController < ApplicationController
 
   def solution_params
     params.require(:solution).permit(:task_id, class_files_attributes: [:id, :filename, :code])
+  end
+
+  def set_standard_input
+    if params[:solution][:custom_input] == '1'
+      @solution.stdin = params[:solution][:stdin]
+    else
+      @solution.stdin = @solution.task.stdin
+    end
   end
 end

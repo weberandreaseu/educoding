@@ -17,3 +17,11 @@ end
 Then(/^he should see his firstname$/) do
   expect(page).to have_content @user.firstname
 end
+
+Given(/^a logged in student$/) do
+  @user = create(:user)
+  visit login_path
+  fill_login_page @user
+  click_button 'Login'
+  expect(page).to have_content @user.firstname
+end
