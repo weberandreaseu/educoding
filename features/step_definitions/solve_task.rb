@@ -15,10 +15,11 @@ When(/^he runs the code$/) do
   click_button('Run')
 end
 
-Then(/^he should see an output "([^"]*)"$/) do |arg1|
-  pending # Write code here that turns the phrase above into concrete actions
+Then(/^he should see an output "([^"]*)"$/) do |output|
+  expect(page).to have_content(output)
 end
 
 Then(/^all tests should be successful$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content("Test say hello")
+  expect(page).to have_content("Passed successfully")
 end

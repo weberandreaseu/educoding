@@ -21,6 +21,9 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
+  # this is the latests version of factory girl compatible with cucumber
   gem 'factory_girl_rails', '~> 3.4'
 end
 
