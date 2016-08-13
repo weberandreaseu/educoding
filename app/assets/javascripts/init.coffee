@@ -3,5 +3,5 @@ window.App ||= {}
 App.init = ->
   console.log 'Init app'
 
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
   App.init()

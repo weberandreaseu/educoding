@@ -74,7 +74,7 @@ class Editor
       $(selector).val code
 
 
-$(document).on "page:change", ->
+$(document).on "turbolinks:load", ->
   # init editable editor only in tasks#new / tasks#edit
   if $(".tasks.new").length > 0 || $(".tasks.edit").length > 0
     editor = new Editor true
