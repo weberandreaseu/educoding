@@ -10,17 +10,14 @@ All tasks can be managed by privileged persons. The access level depend on the u
 - An UNIX operating system (Windows is currently not supported).
 - Ruby, preferably in the latest version 2.3.1. To update Ruby, I recommend [rbenv](https://github.com/rbenv/rbenv).
 - [Bundler](https://github.com/bundler/bundler) to manage the dependencies.
-- Sqlite3 as the DBMS. Later, educoding will use PostgeSQL.
+- PostgeSQL as the DBMS.
 - An installed JDK.
-- [Gradle](https://gradle.org/)
+- [Gradle](https://gradle.org/) (Make sure that `gradle` is in your $PATH variable).
 
 ## Installation
-Clone this repository with `git clone https://github.com/weberandreaseu/educoding.git` or download the .zip.
-
-Go to the `educoding` directory and run `bundle` to install all dependencies.
-
-Type `rake db:setup` to setup the database.
-
-Start the server with `rails server`.
-
-Educoding should run at [http://localhost:3000](http://localhost:3000)
+1. Clone this repository with `git clone https://github.com/weberandreaseu/educoding.git` or download the .zip.
+1. Go to the `educoding` directory and run `bundle` to install all dependencies.
+1. Set username and password for the postgres connection in `config/database.yml`
+1. [Start](https://www.postgresql.org/docs/9.1/static/server-start.html) the postgres database server
+1. Type `rake db:setup` to setup the database.
+1. Start the rails application with `rails server`. Educoding should be available at [http://localhost:3000/](http://localhost:3000/).
