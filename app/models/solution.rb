@@ -1,4 +1,4 @@
-class Solution < ActiveRecord::Base
+class Solution < ApplicationRecord
   belongs_to :user
   belongs_to :task
   has_many :class_files, as: :codeable, dependent: :destroy
