@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '~>5.0.0'
-gem 'sqlite3'
+gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'seed_dump'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
