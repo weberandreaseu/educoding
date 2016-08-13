@@ -1,4 +1,4 @@
-class ClassFile < ActiveRecord::Base
+class ClassFile < ApplicationRecord
   belongs_to :codeable, polymorphic: true
 
   def self.visible
