@@ -16,6 +16,7 @@ module Educoding
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
     # config.i18n.default_locale = :de
 
+    # Capybara.default_driver = :selenium
     Capybara.javascript_driver = :webkit
     Capybara.default_max_wait_time = 10
 

@@ -2,7 +2,7 @@
 <html>
 <%= render 'partials/header' %>
 <body class="<%= controller_name %> <%= action_name %>">
-  <%= render 'partials/navbar' %>
+  <%= render 'partials/navbar', flash: flash %>
 
   <%= render 'partials/notifications' %>
 

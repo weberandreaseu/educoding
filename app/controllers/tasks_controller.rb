@@ -21,7 +21,8 @@ class TasksController < ApplicationController
     if logged_in?
       redirect_to new_solution_path(task: params[:id])
     else
-      redirect_to login_path, notice: 'Please login'
+      flash[:warning] = t('messages.login_first')
+      redirect_to login_path
     end
   end
 
