@@ -2,9 +2,9 @@ module ApplicationHelper
   def markdown(text)
     # options and extensions at https://github.com/vmg/redcarpet
     options = {}
-    extensions = {fenced_code_blocks: true}
+    extensions = {fenced_code_blocks: true, tables: true}
 
-    renderer = Redcarpet::Render::HTML.new(options)
+    renderer = TaskRender.new(options)
     @markdown ||= Redcarpet::Markdown.new(renderer, extensions)
     @markdown.render(text).html_safe
   end
