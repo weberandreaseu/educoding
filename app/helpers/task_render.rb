@@ -5,9 +5,11 @@ class TaskRender < Redcarpet::Render::HTML
   end
 
   def table(header, body)
-    "<table class=\"table table-bordered\"> \
-      <thead class=\"thead-default\">#{header}</thead> \
-      <tbody>#{body}</tbody> \
-    </table>"
+    "<div class=\"table-responsive\"> \
+      <table class=\"table table-bordered\"> \
+        <thead class=\"thead-default\">#{header}</thead> \
+        <tbody>#{body}</tbody> \
+      </table> \
+    </div>"
   end
 end
