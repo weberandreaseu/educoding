@@ -9,7 +9,7 @@
         <a class="nav-link class_file_tab" data-toggle="tab" href="#class_file_<%= get_class_file_id class_file %>" role="tab">
           <%= class_file.hidden_field :code, id: "class_file_#{get_class_file_id class_file}_code" %>
           <% if editable %>
-            <%= class_file.text_field :filename, readonly: true, class: 'class_file_name editable' %>
+            <%= class_file.text_field :filename, readonly: true, class: 'class_file_name editable', title: 'Double click to rename', :data => {:'toggle' => 'tooltip', :'placement' => 'top'} %>
           <% else %>
             <%= class_file.text_field :filename, readonly: true, class: 'class_file_name' %>
           <% end %>

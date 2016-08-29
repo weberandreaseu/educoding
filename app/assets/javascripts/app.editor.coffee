@@ -44,6 +44,7 @@ class Editor
       return
 
   updateEventListener: ->
+    $('[data-toggle="tooltip"]').tooltip()
     tmp = this
     $(document.body).on 'dblclick', '.class_file_name.editable', ->
       tmp.renameClassFile($(this))

@@ -17,6 +17,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 gem 'puma'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'cucumber-rails', :require => false
@@ -33,4 +37,3 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end
-
