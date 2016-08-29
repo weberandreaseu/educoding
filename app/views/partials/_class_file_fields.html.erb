@@ -1,5 +1,5 @@
 <li class="nav-item nested-fields">
-  <%= f.input_field :visible, as: :boolean , class: 'class_file_visible' %>
+  <%= f.input_field :visible, as: :boolean , class: 'class_file_visible', title: 'Set visibility', :data => {:'toggle' => 'tooltip', :'placement' => 'top'} %>
   <%= f.text_field :filename, value: 'Classname.java', readonly: true, class: 'class_file_name editable', title: 'Double click to rename', :data => {:'toggle' => 'tooltip', :'placement' => 'top'}%>
   <%= f.hidden_field :code %>
 </li>
