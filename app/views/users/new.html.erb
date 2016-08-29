@@ -1,5 +1,5 @@
 <h2><%= t('headlines.new_user') %></h2>
-<%= form_for @user do |f| %>
+<%= simple_form_for @user do |f| %>
 
   <% if @user.errors.any? %>
     <ul class="alert alert-danger" role="alert">
@@ -9,30 +9,11 @@
     </ul>
   <% end %>
 
-  <fieldset class="form-group">
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname, class: "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname, class: "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control" %>
-  </fieldset>
-
-  <fieldset class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
-  </fieldset>
+  <%= f.input :firstname %>
+  <%= f.input :lastname %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+  <%= f.input :password_confirmation %>
   
   <%= f.submit t('links.sign_up'), class: "btn btn-primary" %>
   <%= link_to t('actions.cancel'), root_path, class: "btn btn-secondary" %>

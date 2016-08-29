@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new(basic_test: helpers.basic_test_template, advanced_test: helpers.advanded_test_template)
+    @task = Task.new(basic_test: helpers.basic_test_template, advanced_test: helpers.advanced_test_template)
     @task.class_files << ClassFile.new(filename: 'Classfile.java', code: helpers.class_file_template)
   end
 

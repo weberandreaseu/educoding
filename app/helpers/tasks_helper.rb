@@ -46,7 +46,7 @@ module TasksHelper
     HEREDOC
   end
 
-  def advanded_test_template
+  def advanced_test_template
     class_file = <<~HEREDOC
       import static org.junit.Assert.*;
       import org.junit.*;
