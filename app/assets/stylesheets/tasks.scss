@@ -49,7 +49,14 @@
   font-size: 14px;
 }
 
-.nav-link label {
+.class_file_name.editable {
+  margin-left: 12px;
+}
+
+#class_file_tabs .nav-item label {
+  position: absolute;
+  top: 9px;
+  left: 10px;
   margin: 0;
 }
 

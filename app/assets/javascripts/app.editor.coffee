@@ -4,7 +4,6 @@
 
 # array to store the editor instances
 editors = []
-@editable
 
 class Editor
   constructor: (@editable) ->
@@ -26,7 +25,6 @@ class Editor
       this.initEditor pane.id, 'java'
     this.updateEventListener()
 
-  # init ace editor
   initEditor: (id, language) ->
     console.log id
     editor = ace.edit id
@@ -36,7 +34,6 @@ class Editor
     editor.setOptions
       enableBasicAutocompletion: true
       enableSnippets: true
-
     editors.push([editor, id])
 
 
@@ -57,6 +54,8 @@ class Editor
     file_id = file_id.replace('_filename', '')
     class_file.wrapInner('<a class="nav-link class_file_tab editable" href="#' + file_id + '" role="tab" data-toggle="tab"></a>')
     $('#class-file-panes').append('<div id="' + file_id  + '" class="tab-pane" role="tabpanel">// Your java code</div>')
+    checkbox = class_file.find('a label')
+    checkbox.prependTo(class_file)
     this.initEditor file_id, 'java'
     this.updateEventListener()
 
@@ -68,7 +67,6 @@ class Editor
       selector = '#' + id + '_code'
       # set the value of input field
       $(selector).val code
-
 
 $(document).on "turbolinks:load", ->
   # init editable editor only in tasks#new / tasks#edit
