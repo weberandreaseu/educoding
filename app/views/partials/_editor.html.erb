@@ -3,12 +3,16 @@
     <%# class file tabs %>
     <%= f.simple_fields_for :class_files do |class_file| %>
       <li class="nav-item nested-fields">
-        <a class="nav-link class_file_tab <%= 'editable' if editable %>" data-toggle="tab" href="#class_file_<%= get_class_file_id class_file %>" role="tab">
+        <a class="nav-link class_file_tab" data-toggle="tab" href="#class_file_<%= get_class_file_id class_file %>" role="tab">
           <% if editable %>
             <%= class_file.input_field :visible, as: :boolean %>
           <% end %>
           <%= class_file.hidden_field :code, id: "class_file_#{get_class_file_id class_file}_code" %>
-          <%= class_file.text_field :filename, readonly: true, class: 'class_file_name' %>
+          <% if editable %>
+            <%= class_file.text_field :filename, readonly: true, class: 'class_file_name editable' %>
+          <% else %>
+            <%= class_file.text_field :filename, readonly: true, class: 'class_file_name' %>
+          <% end %>
         </a>
 
         <% if editable %>
@@ -20,7 +24,7 @@
     <%# add class file button %>
     <% if editable %>
       <li class="links nav-item">
-        <%= link_to_add_association 'add file', f, :class_files, id: 'add_class_file', class: 'nav-link', partial: 'partials/class_file_fields' %>
+        <%= link_to_add_association '+', f, :class_files, id: 'add_class_file', class: 'nav-link', partial: 'partials/class_file_fields' %>
       </li>
     <% end %>
   </ul>

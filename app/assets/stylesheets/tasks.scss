@@ -18,6 +18,7 @@
   width: 100%;
   border: none;
   border-radius: 0;
+  line-height: inherit;
   &:focus{
     background-color: $gray-lightest;
   }
@@ -46,6 +47,10 @@
   border: 0px;
   min-width: 120px;
   font-size: 14px;
+}
+
+.nav-link label {
+  margin: 0;
 }
 
 .remove_fields {

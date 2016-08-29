@@ -27,6 +27,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @task.class_files << ClassFile.new(filename: 'Classfile.java', code: '// Your java code')
   end
 
   def create
