@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5 ,h6 {
 footer {
   background-color: $gray-dark;
   color: $gray-lighter;
+  margin-top: 15px;
   a {
     color: $gray-lighter;
   }
@@ -54,43 +55,8 @@ footer {
 .language-picker {
   list-style-type: none;
   padding: 0;
-  list-style-type: none;
 }
 
 .nav-item {
   position: relative;
-}
-
-.class_file_name, .edit_class_file_name {
-  border: 0px;
-  min-width: 120px;
-  font-size: 14px;
-}
-
-.remove_fields {
-  position: absolute;
-  top: 10px;
-  right: 5px;
-  &:hover {
-    text-decoration: none;
-  }
-}
-
-pre {
-  &.log {
-    height: 150px;
-  }
-  background-color: $gray-lightest;
-  padding: 10px;
-  p {
-    margin: 0;
-  }
-}
-
-.card.card-outline-danger {
-  border-color: $brand-danger;
-}
-
-.card.card-outline-success {
-  border-color: $brand-success;
 }

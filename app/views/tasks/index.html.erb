@@ -1,25 +1,28 @@
 <h1><%= t('actions.all_tasks') %></h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th><%= t('helpers.label.task.title') %></th>
-      <th><%= t('helpers.label.task.score') %></th>
-      <th><%= t('actions.edit').humanize %></th>
-      <th><%= t('actions.delete').humanize %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tasks.each_with_index do |task, index| %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
       <tr>
-        <th scope="row"><%= index+1 %></th>
-        <td><%= link_to task.title, solve_task_path(task) %></td>
-        <td><%= task.score %></td>
-        <td><%= link_to t('actions.edit'), edit_task_path(task) %></td>
-        <td><%= link_to t('actions.delete'), task_path(task), method: "delete", data: {confirm: t('confirm.delete_task', task: task.title) }%></td>
+        <th>#</th>
+        <th><%= t('helpers.label.task.title') %></th>
+        <th><%= t('helpers.label.task.score') %></th>
+        <th><%= t('actions.edit').humanize %></th>
+        <th><%= t('actions.delete').humanize %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to t('helpers.title.new', model: Task.model_name.human), new_task_path, class: "btn btn-primary" %>
+    </thead>
+    <tbody>
+      <% @tasks.each_with_index do |task, index| %>
+        <tr>
+          <th scope="row"><%= index+1 %></th>
+          <td><%= link_to task.title, solve_task_path(task) %></td>
+          <td><%= task.score %></td>
+          <td><%= link_to t('actions.edit'), edit_task_path(task) %></td>
+          <td><%= link_to t('actions.delete'), task_path(task), method: "delete", data: {confirm: t('confirm.delete_task', task: task.title) }%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to t('helpers.title.new', model: Task.model_name.human), new_task_path, class: "btn btn-primary create-task" %>

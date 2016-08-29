@@ -4,7 +4,7 @@ $('#stdout').html("""<%= @solution.stdout %>""")
 $('#error_message').empty().append("""<%= @solution.error_message.html_safe %>""")
 # render test results
 <% if @solution.basic %>
-$('#test_results').html('<table class="table" id="test_summary"></table><div id="testcases" class="row"></div>')
+$('#test_results').html('<div class="table-responsive"><table class="table" id="test_summary"></table></div><div id="testcases" class="row"></div>')
 <% root = @solution.basic.at('testsuite') %>
 <% root.each do |key, value| %>
 $('#test_summary').append('<th><%= "#{key.humanize}: #{value}" %></th>')

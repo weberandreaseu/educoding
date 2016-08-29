@@ -3,22 +3,25 @@
 @import "bootstrap";
 
 .ace_editor {
-	min-height: 350px;
+	min-height: 500px;
 }
 
 .ace-chrome {
 	background-color: $gray-lightest !important;
 }
 
-.solution_stdin textarea {
+.solution_stdin textarea, .task_stdin textarea {
   @extend pre;
   height: 150px;
-  background-color: $gray-lightest;
   outline: none;
   resize: none;
   width: 100%;
   border: none;
   border-radius: 0;
+  line-height: inherit;
+  &:focus{
+    background-color: $gray-lightest;
+  }
 }
 
 .solution_custom_input {
@@ -32,9 +35,59 @@
 .ace_editor {
   font-family: $font-family-monospace !important;
   font-size: 13px !important;
+  margin-bottom: 15px;
 }
 
 #input-headline {
   display: inline-block;
   padding-right: 10px;
+}
+
+
+.class_file_name, .edit_class_file_name {
+  border: 0px;
+  min-width: 120px;
+  font-size: 14px;
+}
+
+.class_file_name.editable {
+  margin-left: 12px;
+}
+
+#class_file_tabs .nav-item label {
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  margin: 0;
+}
+
+#add_class_file {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 2px 15px;
+}
+
+.remove_fields {
+  position: absolute;
+  top: 9px;
+  right: 7px;
+}
+
+pre {
+  &.log {
+    height: 150px;
+  }
+  background-color: $gray-lightest;
+  padding: 10px;
+  p {
+    margin: 0;
+  }
+}
+
+.card.card-outline-danger {
+  border-color: $brand-danger;
+}
+
+.card.card-outline-success {
+  border-color: $brand-success;
 }

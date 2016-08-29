@@ -15,10 +15,9 @@ class Editor
       this.initEditor 'editor_basic_test', 'java'
       this.initEditor 'editor_advanced_test', 'java'
 
-    panes = $('.tab-content').children('div.tab-pane')
-
     # set frist tab / pane to active
     $('#class_file_tabs > .nav-item > .nav-link').first().addClass('active')
+    panes = $('.tab-content').children('div.tab-pane')
     panes.first().addClass('active')
 
     # init editor for each tab
@@ -26,7 +25,6 @@ class Editor
       this.initEditor pane.id, 'java'
     this.updateEventListener()
 
-  # init ace editor
   initEditor: (id, language) ->
     console.log id
     editor = ace.edit id
@@ -36,31 +34,29 @@ class Editor
     editor.setOptions
       enableBasicAutocompletion: true
       enableSnippets: true
-
     editors.push([editor, id])
 
 
   renameClassFile: (class_file) ->
-    input = class_file.children()
-    input.prop('readonly', false)
-
+    class_file.prop('readonly', false)
     class_file.focusout ->
-      input.prop('readonly', true)
+      class_file.prop('readonly', true)
       return
 
   updateEventListener: ->
+    $('[data-toggle="tooltip"]').tooltip()
     tmp = this
-    $('.class_file_tab.editable').dblclick ->
+    $(document.body).on 'dblclick', '.class_file_name.editable', ->
       tmp.renameClassFile($(this))
       return
 
-    # TODO: make new tabs selectable
-
   addClassFile: (class_file) ->
-    file_id = class_file.children('input').attr('id')
+    file_id = class_file.children('input.class_file_name').attr('id')
     file_id = file_id.replace('_filename', '')
-    class_file.wrapInner('<a class="nav-link class_file_tab" href="#' + file_id + '"></a>')
-    $('#class-file-panes').append('<div id="' + file_id + '" class="tab-pane" role="tabpanel">// Your java code</div>')
+    class_file.wrapInner('<a class="nav-link class_file_tab editable" href="#' + file_id + '" role="tab" data-toggle="tab"></a>')
+    $('#class-file-panes').append('<div id="' + file_id  + '" class="tab-pane" role="tabpanel">// Your java code</div>')
+    checkbox = class_file.find('a label')
+    checkbox.prependTo(class_file)
     this.initEditor file_id, 'java'
     this.updateEventListener()
 
@@ -72,7 +68,6 @@ class Editor
       selector = '#' + id + '_code'
       # set the value of input field
       $(selector).val code
-
 
 $(document).on "turbolinks:load", ->
   # init editable editor only in tasks#new / tasks#edit

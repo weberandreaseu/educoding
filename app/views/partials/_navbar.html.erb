@@ -12,6 +12,8 @@
         <li class="nav-item active dropdown pull-xs-right">
           <% if logged_in? %>
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.firstname %></a>
+          <% else %>
+            <div class="nav-link"><%= link_to t('links.login'), login_path %></div>
           <% end %>
           <div class="dropdown-menu">
             <%= link_to t('links.logout'), logout_path, method: :delete, class: "dropdown-item" %>

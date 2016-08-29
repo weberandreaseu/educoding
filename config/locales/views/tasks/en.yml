@@ -3,6 +3,7 @@ en:
     edit_task: "Task was updated"
     create_task: "Task was created"
     delete_task: "Task was deleted"
+    login_first: "You need to be logged in"
   confirm:
     delete_task: "Do you really want to delete %{task}?"
   actions:

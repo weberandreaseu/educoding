@@ -3,6 +3,7 @@ de:
     edit_task: "Aufgabe wurde bearbeitet"
     create_task: "Aufgabe wurde erstellt"
     delete_task: Aufgabe wurde gelöscht
+    login_first: "Du musst angemeldet sein"
   confirm:
     delete_task: "Möchtest du %{task} wirklich löschen?"
   actions:

@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  layout "sidebar", except: [:index]
   def index
     @tasks = Task.all
   end
@@ -21,12 +20,14 @@ class TasksController < ApplicationController
     if logged_in?
       redirect_to new_solution_path(task: params[:id])
     else
-      redirect_to login_path, notice: 'Please login'
+      flash[:warning] = t('messages.login_first')
+      redirect_to login_path
     end
   end
 
   def new
-    @task = Task.new
+    @task = Task.new(basic_test: helpers.basic_test_template, advanced_test: helpers.advanded_test_template)
+    @task.class_files << ClassFile.new(filename: 'Classfile.java', code: helpers.class_file_template)
   end
 
   def create
