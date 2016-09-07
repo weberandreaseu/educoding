@@ -16,4 +16,9 @@ module ApplicationHelper
       class_file.object.id
     end
   end
+
+  def bootstrap_flash_message(flash_type)
+    classes = {warning: 'alert-warning', notice: 'alert-info', error: 'alert-danger', success: 'alert-success'}
+    classes[flash_type.to_sym] || flash_type.to_s
+  end
 end

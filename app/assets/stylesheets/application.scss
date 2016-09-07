@@ -57,6 +57,22 @@ footer {
   padding: 0;
 }
 
+.navbar .container {
+  padding: 0;
+}
+
+.navbar-toggler, .navbar-toggler:focus {
+  float: left;
+  outline: none;
+}
+
 .nav-item {
   position: relative;
+  @include media-breakpoint-down(xs) {
+    width: 100%;
+  }
+}
+
+.help-block {
+  color: $brand-danger;
 }

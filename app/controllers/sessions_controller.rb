@@ -4,9 +4,10 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:sessions][:password])
       # TODO: extrak to log_in user in session_helper
       session[:user_id] = user.id
-      redirect_to tasks_path, notice: t('messages.valid_login')
+      flash[:success] = t('messages.valid_login')
+      redirect_to tasks_path
     else
-      flash.now[:danger] = t('messages.invalid_login')
+      flash.now[:error] = t('messages.invalid_login')
       render "new"
     end
   end

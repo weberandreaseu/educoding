@@ -28,7 +28,6 @@ if (!buildDir.exists()) {
 // Date 27.07.16
 // https://stackoverflow.com/questions/34875637/how-to-pass-multiple-parameters-in-command-line-when-running-gradle-task
 task run(type: JavaExec) {
-	println rootProject
 	def mainfile = ''
 	if (project.hasProperty('package')) {
 		mainfile += project.getProperty('package') + '.'

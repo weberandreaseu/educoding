@@ -36,6 +36,6 @@
 <p>Score: <%= @task.score %></p>
 
 <% if @solution.persisted? %>
-  <p>Last saved: <%= @solution.updated_at %></p>
+  <p>Last saved: <%= l @solution.updated_at, format: :short %></p>
   <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: 'Bist du sicher?' }%>
 <% end %>
