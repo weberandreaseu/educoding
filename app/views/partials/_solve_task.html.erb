@@ -37,5 +37,5 @@
 
 <% if @solution.persisted? %>
   <p><%= l @solution.updated_at, format: :last_saved %></p>
-  <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: t('confirm.delete_solution') }%>
+  <%= link_to t('links.delete', model: Solution.model_name.human), solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: t('confirm.delete_solution') }%>
 <% end %>

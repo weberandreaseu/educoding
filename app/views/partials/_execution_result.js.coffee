@@ -1,4 +1,6 @@
 <% @solution.run %>
+$('#notifications').empty()
+$('#notifications').html("<%= escape_javascript(render :partial => 'partials/notifications' , :locals => { :flash => flash }).html_safe %>");
 $('#test_results').empty()
 $('#stdout').html("""<%= @solution.stdout %>""")
 $('#error_message').empty().append("""<%= @solution.error_message.html_safe %>""")

@@ -13,12 +13,15 @@ class SolutionsController < ApplicationController
 
   def update
     @solution = Solution.find_by_id(params[:id])
-    set_standard_input
-    if params[:solution][:run] == 'true'
-      run_solution @solution
-    else
-      update_solution @solution
+    @solution.assign_attributes(solution_params.except(:filename))
+    if final?
+      if @solution.update_attributes(solution_params.except(:filename))
+        flash[:success] = t('messages.update', model: Solution.model_name.human)
+      else
+        flash[:error] = "Fehler beim speichern"
+      end
     end
+    run_solution
   end
 
   def edit
@@ -29,15 +32,14 @@ class SolutionsController < ApplicationController
   def create
     @solution = Solution.new(solution_params)
     @solution.user = current_user
-    set_standard_input
-    if params[:solution][:run] == 'true'
-      run_solution @solution
-    elsif @solution.save
-      flash[:success] = t('messages.save', model: Solution.model_name.human)
-      redirect_to edit_solution_path(@solution)
-    else
-      render 'new'
+    if final?
+      if @solution.save
+        flash[:success] = t('messages.save', model: Solution.model_name.human)
+      else
+        flash[:error] = "Fehler beim speichern"
+      end
     end
+    run_solution
   end
 
   def destroy
@@ -53,11 +55,16 @@ class SolutionsController < ApplicationController
     params.require(:solution).permit(:task_id, class_files_attributes: [:id, :filename, :code])
   end
 
-  def set_standard_input
-    if params[:solution][:custom_input] == '1'
-      @solution.stdin = params[:solution][:stdin]
-    else
-      @solution.stdin = @solution.task.stdin
+  def final?
+    params[:solution][:run] == 'true' ? @solution.final = false : @solution.final = true
+    params[:solution][:custom_input] == '1' ? @solution.stdin = params[:solution][:stdin] : @solution.stdin = @solution.task.stdin
+    @solution.final
+  end
+
+  def run_solution
+    @solution.run
+    respond_to do |format|
+      format.js
     end
   end
 end

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_locale
+  helper_method :current_user, :logged_in?
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
@@ -10,22 +11,6 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !current_user.nil?
-  end
-
-  def update_solution(solution)
-    if solution.update_attributes(solution_params.except(:filename))
-      flash[:success] = t('messages.update', model: Solution.model_name.human)
-      redirect_to edit_solution_path(solution)
-    else
-      redirect_to edit_solution_path(solution)
-    end
-  end
-
-  def run_solution(solution)
-    solution.assign_attributes(solution_params)
-    respond_to do |format|
-      format.js
-    end
   end
 
   private

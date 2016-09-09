@@ -4,7 +4,9 @@
 <body class="<%= controller_name %> <%= action_name %>">
   <%= render 'partials/navbar', flash: flash %>
 
-  <%= render 'partials/notifications' %>
+  <div id="notifications">
+    <%= render 'partials/notifications' %>
+  </div>
 
   <div class="container">
     <%= content_for?(:root) ? yield(:root) : yield %>

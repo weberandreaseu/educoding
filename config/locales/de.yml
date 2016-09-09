@@ -55,6 +55,7 @@ de:
     sign_up: "Registrieren"
     login: "Anmelden"
     logout: "Abmelden"
+    delete: "%{model} löschen"
   messages:
     create: "%{model} wurde erstellt"
     update: "%{model} wurde aktualisiert"

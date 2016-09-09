@@ -55,6 +55,7 @@ en:
     sign_up: "Sign Up"
     login: "Login"
     logout: "Logout"
+    delete: "Delete %{model}"
   messages:
     create: "%{model} was created"
     update: "%{model} was updated"
@@ -80,7 +81,7 @@ en:
     new_user: "Create new Account"
   time:
     formats:
-      last_saved: "Last saved at am %A, den %d.%m. um %H:%M Uhr"
-      created_at: "Create at %A, den %d.%m. um %H:%M Uhr"
+      last_saved: "Last saved at %A %d %b %I:%M %p"
+      created_at: "Created at %A %d %b %I:%M %p"
   footer:
     select_language: "Sprache auswählen"

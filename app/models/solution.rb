@@ -3,7 +3,7 @@ class Solution < ApplicationRecord
   belongs_to :task
   has_many :class_files, as: :codeable, dependent: :destroy
   accepts_nested_attributes_for :class_files
-  attr_accessor :user_dir, :custom_input, :stdin, :basic, :stdout, :error_message
+  attr_accessor :user_dir, :custom_input, :stdin, :basic, :stdout, :error_message, :final
 
   def run
     serialize
