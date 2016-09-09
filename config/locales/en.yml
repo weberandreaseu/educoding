@@ -59,13 +59,16 @@ en:
   messages:
     create: "%{model} was created"
     update: "%{model} was updated"
+    update_failed: "The update operation failed"
     delete: "%{model} was deleted"
     save: "%{model} was saved"
+    save_failed: "The save operation failed"
     invalid_login: "Invalid Email or Password"
     valid_login: "Hello %{user}, you successfully logged in"
     logout: "You are logged out"
     login_first: "You have to be logged in"
     sign_up: "Welcome to educoding, %{user}"
+    any_test: "This task has no tests"
   explain:
     test_results: "Run your program to see test results"
     rename: "Doubleclick to rename"

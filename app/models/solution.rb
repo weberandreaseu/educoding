@@ -56,14 +56,14 @@ class Solution < ApplicationRecord
     basic_file = open_file(File.join(build_dir, 'test-results', 'TEST-BasicTest.xml'))
     advanced_file = open_file(File.join(build_dir, 'test-results', 'TEST-AdvancedTest.xml'))
 
-    if basic_file && advanced_file
+    if basic_file && advanced_file && self.final
       @basic = create_xml(basic_file)
       @advanced = create_xml(advanced_file)
       merge_test_result
       @advanced = nil
     elsif basic_file
       @basic = create_xml(basic_file)
-    elsif advanced_file
+    elsif advanced_file && self.final
       @advanced = create_xml(advanced_file)
       @basic = @advanced
       @advanced = nil

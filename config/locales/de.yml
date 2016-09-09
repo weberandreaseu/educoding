@@ -59,13 +59,16 @@ de:
   messages:
     create: "%{model} wurde erstellt"
     update: "%{model} wurde aktualisiert"
+    update_failed: "Die Aktualisierung ist fehlgeschlagen"
     delete: "%{model} wurde gelöscht"
     save: "%{model} wurde gespeichert"
+    save_failed: "Der Speichervorgang ist fehlgeschlagen"
     invalid_login: "Ungültige Email oder Passwort"
     valid_login: "Hallo %{user}, deine Anmeldung war erfolgreich"
     logout: "Du hast dich abgemeldet"
     login_first: "Du musst angemeldet sein"
     sign_up: "Willkommen bei educoding, %{user}"
+    any_test: "Für diese Aufgabe sind keine Testfälle hinterlegt"
   explain:
     test_results: "Führe das Programm aus, um die Testergebnisse zu sehen"
     rename: "Doppelklicken zum Umbenennen"

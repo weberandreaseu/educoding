@@ -16,9 +16,9 @@ class SolutionsController < ApplicationController
     @solution.assign_attributes(solution_params.except(:filename))
     if final?
       if @solution.update_attributes(solution_params.except(:filename))
-        flash[:success] = t('messages.update', model: Solution.model_name.human)
+        flash.now[:success] = t('messages.update', model: Solution.model_name.human)
       else
-        flash[:error] = "Fehler beim speichern"
+        flash.now[:error] = t('messages.update_failed')
       end
     end
     run_solution
@@ -34,9 +34,9 @@ class SolutionsController < ApplicationController
     @solution.user = current_user
     if final?
       if @solution.save
-        flash[:success] = t('messages.save', model: Solution.model_name.human)
+        flash.now[:success] = t('messages.save', model: Solution.model_name.human)
       else
-        flash[:error] = "Fehler beim speichern"
+        flash.now[:error] = t('messages.save_failed')
       end
     end
     run_solution
