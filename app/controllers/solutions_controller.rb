@@ -33,7 +33,8 @@ class SolutionsController < ApplicationController
     if params[:solution][:run] == 'true'
       run_solution @solution
     elsif @solution.save
-      redirect_to edit_solution_path(@solution), notice: 'Solution was saved'
+      flash[:success] = t('messages.save', model: Solution.model_name.human)
+      redirect_to edit_solution_path(@solution)
     else
       render 'new'
     end
@@ -42,7 +43,8 @@ class SolutionsController < ApplicationController
   def destroy
     @solution = Solution.find_by_id(params[:id])
     @solution.destroy
-    redirect_to tasks_path, notice: 'Solution was deleted'
+    flash[:warning] = t('messages.delete', model: Solution.model_name.human)
+    redirect_to tasks_path
   end
 
   private

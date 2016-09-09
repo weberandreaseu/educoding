@@ -1,9 +1,0 @@
-de:
-  links:
-    sign_up: "Registrieren"
-    login: "Anmelden"
-    logout: "Abmelden"
-  messages:
-    invalid_login: "Ungültige Email oder Passwort"
-    valid_login: "Du wurdest erfolgreich angemeldet"
-    logout: "Du hast dich abgemeldet"

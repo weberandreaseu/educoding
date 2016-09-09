@@ -1,0 +1,86 @@
+de:
+  activerecord:
+    models:
+      task:
+        one: "Aufgabe"
+        other: "Aufgaben"
+      user:
+        one: "Benutzer"
+        other: "Benutzer"
+      solution:
+        one: "Lösung"
+        other: "Lösungen"
+    attributes:
+      solution:
+        score: "Punkte"
+        input: "Eingabe"
+        output: "Ausgabe"
+        error: "Fehler"
+        test_results: "Testergebnisse"
+      task:
+        score: "Punkte"
+        title: "Titel"
+        description: "Beschreibung"
+        stdin: "Standard Eingabe"
+        basic_test: "Basis Test"
+        advanced_test: "Erweiterter Test"
+      user:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "Email"
+        password: "Passwort"
+        password_confirmation: "Passwort Bestätigung"
+  helpers:
+    label:
+      user:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        email: "Email"
+        password: "Passwort"
+        password_confirmation: "Passwort Bestätigung"
+      task:
+        title: "Titel"
+        description: "Beschreibung"
+        score: "Punkte"
+  actions:
+    edit: "bearbeiten"
+    delete: "löschen"
+    create: "erstellen"
+    new: "neu"
+    cancel: "Abbrechen"
+    run: "Ausführen"
+    save: "Speichern"
+    custom_input: "Eigene Eingabe verwenden"
+  links:
+    sign_up: "Registrieren"
+    login: "Anmelden"
+    logout: "Abmelden"
+  messages:
+    create: "%{model} wurde erstellt"
+    update: "%{model} wurde aktualisiert"
+    delete: "%{model} wurde gelöscht"
+    save: "%{model} wurde gespeichert"
+    invalid_login: "Ungültige Email oder Passwort"
+    valid_login: "Hallo %{user}, deine Anmeldung war erfolgreich"
+    logout: "Du hast dich abgemeldet"
+    login_first: "Du musst angemeldet sein"
+    sign_up: "Willkommen bei educoding, %{user}"
+  explain:
+    test_results: "Führe das Programm aus, um die Testergebnisse zu sehen"
+    rename: "Doppelklicken zum Umbenennen"
+    visibility: "Sichtbarkeit festlegen"
+    basic_test: "Diese Testfälle sind für den Benutzer sichtbar"
+    advanced_test: "Diese Testfälle werden nach Abgabe ausgeführt"
+    markdown: "Die Formatierung der Aufgabenbeschreibung erfolgt durch"
+  confirm:
+    delete: "Möchtest du %{model} wirklich löschen?"
+    delete_solution: "Möchtest du deine Lösung wirklich löschen?"
+  headlines:
+    start: "Willkommen bei educoding"
+    new_user: "Neues Konto anlegen"
+  time:
+    formats:
+      last_saved: "Zuletzt gespeichert am %A, den %d.%m. um %H:%M Uhr"
+      created_at: "Erstellt am %A, den %d.%m. um %H:%M Uhr"
+  footer:
+    select_language: "Sprache auswählen"

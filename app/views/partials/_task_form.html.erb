@@ -3,6 +3,9 @@
   <%= f.input :score %>
 
   <%= f.label :description %>
+  <p class="text-muted"><%= t('explain.markdown') %>
+    <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a>
+  </p>
   <div id="editor_description"><%= @task.description %></div>
   <%= f.hidden_field :description, id: 'editor_description_code' %>
   
@@ -14,11 +17,13 @@
 
   <%= f.input :stdin %>
 
-  <h3>Basic Test</h3>
+  <h3><%= Task.human_attribute_name('basic_test') %></h3>
+  <p class="text-muted"><%= t('explain.basic_test') %></p>
   <div id="editor_basic_test"><%= @task.basic_test %></div>
   <%= f.hidden_field :basic_test, id: 'editor_basic_test_code' %>
 
-  <h3>Advanced Test</h3>
+  <h3><%= Task.human_attribute_name('advanced_test') %></h3>
+  <p class="text-muted"><%= t('explain.advanced_test') %></p>
   <div id="editor_advanced_test"><%= @task.advanced_test %></div>
   <%= f.hidden_field :advanced_test, id: 'editor_advanced_test_code' %>
 

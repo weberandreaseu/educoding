@@ -1,9 +1,0 @@
-en:
-  links:
-    sign_up: "Sign Up"
-    login: "Login"
-    logout: "Logout"
-  messages:
-    invalid_login: "Invalid email or password"
-    valid_login: "You are logged in"
-    logout: "You are logged out"

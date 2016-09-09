@@ -1,0 +1,86 @@
+en:
+  activerecord:
+    models:
+      task:
+        one: "Task"
+        other: "Tasks"
+      user:
+        one: "User"
+        other: "User"
+      solution:
+        one: "Solution"
+        other: "Solutions"
+    attributes:
+      solution:
+        score: "Score"
+        input: "Input"
+        output: "Output"
+        error: "Errors"
+        test_results: "Test Results"
+      task:
+        score: "Score"
+        title: "Title"
+        description: "Description"
+        stdin: "Standard Input"
+        basic_test: "Basic Test"
+        advanced_test: "Advanced Test"
+      user:
+        firstname: "Firstname"
+        lastname: "Lastname"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+  helpers:
+    label:
+      user:
+        firstname: "Firstname"
+        lastname: "Lastname"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+      task:
+        title: "Title"
+        description: "Description"
+        score: "Score"
+  actions:
+    edit: "edit"
+    delete: "delte"
+    create: "create"
+    new: "new"
+    cancel: "Cancel"
+    run: "Run"
+    save: "Save"
+    custom_input: "Use custom input"
+  links:
+    sign_up: "Sign Up"
+    login: "Login"
+    logout: "Logout"
+  messages:
+    create: "%{model} was created"
+    update: "%{model} was updated"
+    delete: "%{model} was deleted"
+    save: "%{model} was saved"
+    invalid_login: "Invalid Email or Password"
+    valid_login: "Hello %{user}, you successfully logged in"
+    logout: "You are logged out"
+    login_first: "You have to be logged in"
+    sign_up: "Welcome to educoding, %{user}"
+  explain:
+    test_results: "Run your program to see test results"
+    rename: "Doubleclick to rename"
+    visibility: "Set visibility"
+    basic_test: "These testcases are visible to the users"
+    advanced_test: "These testcases are executed after submission"
+    markdown: "The task description ist formatted in"
+  confirm:
+    delete: "Do you really want to delete %{model}?"
+    delete_solution: "Do you really want to delete your solution?"
+  headlines:
+    start: "Welcome to educoding"
+    new_user: "Create new Account"
+  time:
+    formats:
+      last_saved: "Last saved at am %A, den %d.%m. um %H:%M Uhr"
+      created_at: "Create at %A, den %d.%m. um %H:%M Uhr"
+  footer:
+    select_language: "Sprache auswählen"

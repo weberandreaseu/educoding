@@ -7,4 +7,4 @@ Scenario: Sign up
 When a user visits sign up
 And fills the registration form
 And he clicks the "Sign Up" button
-Then he should see a confirmation "successfully registred"
+Then he should see a confirmation "Welcome to educoding"

@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
 
   def update_solution(solution)
     if solution.update_attributes(solution_params.except(:filename))
-      redirect_to tasks_path, notice: 'Solution was updated'
+      flash[:success] = t('messages.update', model: Solution.model_name.human)
+      redirect_to edit_solution_path(solution)
     else
       redirect_to edit_solution_path(solution)
     end

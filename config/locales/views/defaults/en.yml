@@ -1,9 +1,0 @@
-en:
-  actions:
-    edit: "edit"
-    delete: "delete"
-    create: "create"
-    new: "new"
-    cancel: "Cancel"
-  footer:
-    select_language: "Select Language"

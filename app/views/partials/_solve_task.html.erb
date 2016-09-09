@@ -1,4 +1,7 @@
 <h1><%= @task.title %></h1>
+<div class="lead text-muted">
+  <%= "#{Solution.human_attribute_name("score")}: #{@task.score}" %>
+</div>
 
 <%= markdown(@task.description) %>
 
@@ -9,33 +12,30 @@
 
   <%= f.hidden_field :run, value: true %>
 
-  <%= f.button :submit, 'Save', id: 'save-solution', class: 'btn-primary' %>
-  <%= f.button :submit, 'Run', id: 'run-solution', class: 'btn-success' %>
+  <%= f.button :submit, t('actions.save'), id: 'save-solution', class: 'btn-primary' %>
+  <%= f.button :submit, t('actions.run'), id: 'run-solution', class: 'btn-success' %>
   <div class="row">
     <div class="col-md-6">
-      <h5 id="input-headline">Input</h5>
-      <%= f.input :custom_input, as: :boolean, inline_label: 'Use custom input' %>
+      <h5 id="input-headline"><%= Solution.human_attribute_name("input") %></h5>
+      <%= f.input :custom_input, as: :boolean, inline_label: t('actions.custom_input') %>
       <%= f.input :stdin, as: :text, label: false, placeholder: @task.stdin %>
     </div>
     <div class="col-md-6">
-      <h5>Output</h5>
+      <h5><%= Solution.human_attribute_name("output") %></h5>
       <pre id="stdout" class="pre-scrollable log"></pre>
     </div>  
   </div>
 <% end %>
 
-<h5>Errors</h5>
+<h5><%= Solution.human_attribute_name("error") %></h5>
 <pre id="error_message" class="pre-scrollable log"></pre>
 
-<h5>Test Results</h5>
+<h5><%= Solution.human_attribute_name("test_results") %></h5>
 <div id="test_results">
-  <p>Run solution to see test results...</p>
+  <p><%= t('explain.test_results') %></p>
 </div>
 
-<h5>Info</h5>
-<p>Score: <%= @task.score %></p>
-
 <% if @solution.persisted? %>
-  <p>Last saved: <%= l @solution.updated_at, format: :short %></p>
-  <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: 'Bist du sicher?' }%>
+  <p><%= l @solution.updated_at, format: :last_saved %></p>
+  <%= link_to 'Lösung löschen', solution_path(@solution), class: 'btn btn-danger', method: "delete", data: {confirm: t('confirm.delete_solution') }%>
 <% end %>

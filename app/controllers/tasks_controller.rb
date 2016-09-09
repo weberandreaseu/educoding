@@ -10,7 +10,8 @@ class TasksController < ApplicationController
   def update
     @task = Task.find_by_id(params[:id])
     if @task.update_attributes(task_params)
-      redirect_to tasks_path, notice: t('messages.edit_task')
+      flash[:success] =  t('messages.update', model: @task.title)
+      redirect_to tasks_path
     else
       render 'edit'
     end
@@ -33,7 +34,8 @@ class TasksController < ApplicationController
   def create
     @task = Task.create(task_params)
     if @task.save
-      redirect_to tasks_path, notice: t('messages.create_task')
+      flash[:success] =  t('messages.create', model: @task.title)
+      redirect_to tasks_path
     else
       render 'new'
     end
@@ -42,7 +44,8 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find_by_id(params[:id])
     @task.destroy
-    redirect_to tasks_path, notice: t('messages.delete_task')
+    flash[:warning] = t('messages.delete', model: @task.title)
+    redirect_to tasks_path
   end
 
   private

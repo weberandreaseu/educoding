@@ -8,7 +8,7 @@ When a user visits the tasks overview
 And he clicks "Create Task"
 And fills the new task from
 And he clicks the "Create Task" button
-Then he should see a confirmation "Task was created"
+Then he should see a confirmation "was created"
 And page should have the task title
 
 Scenario: Edit existing Task
