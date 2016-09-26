@@ -44,7 +44,7 @@ en:
         score: "Score"
   actions:
     edit: "edit"
-    delete: "delte"
+    delete: "delete"
     create: "create"
     new: "new"
     cancel: "Cancel"
@@ -87,4 +87,4 @@ en:
       last_saved: "Last saved at %A %d %b %I:%M %p"
       created_at: "Created at %A %d %b %I:%M %p"
   footer:
-    select_language: "Sprache auswählen"
+    select_language: "Select language"
